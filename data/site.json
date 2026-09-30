@@ -1,0 +1,149 @@
+{
+  "brand": {
+    "name": "ASSERT",
+    "legal_name": "ASSERT",
+    "tagline": "Empowering the physical world with intelligence",
+    "description": "ASSERT blends AI, computer vision, IoT and custom software engineering to deliver scalable, real-time solutions for public and private-sector organisations.",
+    "founded": "2025"
+  },
+  "contact": {
+    "email": "info@assert.gr",
+    "phone": "+30 215 555 6984",
+    "street": "34 Stenimachou Street",
+    "locality": "Nea Smyrni, Athens",
+    "region": "Attica",
+    "postal_code": "",
+    "country": "GR",
+    "hours": "Monday – Friday, 09:00 – 18:00",
+    "hours_spec": "Mo-Fr 09:00-18:00",
+    "map_url": "https://www.google.com/maps/search/?api=1&query=34+Stenimachou+Street+Nea+Smyrni+Athens",
+    "linkedin": "https://www.linkedin.com/company/assert-gr/",
+    "notify_email": "info@assert.gr"
+  },
+  "seo": {
+    "base_url": "https://assert.gr",
+    "title_suffix": "| ASSERT",
+    "description": "ASSERT builds AI, computer vision, IoT and custom software solutions that turn real-world data into real-time decisions for public and private organisations.",
+    "og_image": "assert-social-card",
+    "twitter": "",
+    "google_verification": "",
+    "bing_verification": ""
+  },
+  "navigation": [
+    {
+      "label": "Company",
+      "url": "/company/",
+      "submenu": ""
+    },
+    {
+      "label": "Services",
+      "url": "/services/",
+      "submenu": "services"
+    },
+    {
+      "label": "Industries",
+      "url": "/industries/",
+      "submenu": "industries"
+    },
+    {
+      "label": "Products",
+      "url": "/products/",
+      "submenu": "products"
+    },
+    {
+      "label": "Projects",
+      "url": "/projects/",
+      "submenu": ""
+    },
+    {
+      "label": "Insights",
+      "url": "/insights/",
+      "submenu": ""
+    }
+  ],
+  "footer": {
+    "text": "ASSERT engineers intelligent systems — AI, computer vision, IoT and custom software — that help organisations see, understand and act on the physical world.",
+    "columns": [
+      {
+        "title": "Capabilities",
+        "links": [
+          {
+            "label": "Artificial Intelligence",
+            "url": "/services/artificial-intelligence/"
+          },
+          {
+            "label": "Computer Vision",
+            "url": "/services/computer-vision/"
+          },
+          {
+            "label": "Internet of Things & Edge",
+            "url": "/services/internet-of-things/"
+          },
+          {
+            "label": "Defence & Security",
+            "url": "/services/defence-and-security/"
+          },
+          {
+            "label": "Custom Software",
+            "url": "/services/custom-software-development/"
+          },
+          {
+            "label": "IT Consulting",
+            "url": "/services/it-consulting/"
+          }
+        ]
+      },
+      {
+        "title": "Company",
+        "links": [
+          {
+            "label": "About ASSERT",
+            "url": "/company/"
+          },
+          {
+            "label": "Industries",
+            "url": "/industries/"
+          },
+          {
+            "label": "Products",
+            "url": "/products/"
+          },
+          {
+            "label": "Projects & R&D",
+            "url": "/projects/"
+          },
+          {
+            "label": "Insights & News",
+            "url": "/insights/"
+          },
+          {
+            "label": "Contact",
+            "url": "/contact/"
+          }
+        ]
+      }
+    ],
+    "legal": [
+      {
+        "label": "Privacy policy",
+        "url": "/privacy-policy/"
+      },
+      {
+        "label": "Cookie policy",
+        "url": "/cookie-policy/"
+      },
+      {
+        "label": "Terms & conditions",
+        "url": "/terms/"
+      },
+      {
+        "label": "Accessibility",
+        "url": "/accessibility/"
+      },
+      {
+        "label": "Sitemap",
+        "url": "/sitemap.xml"
+      }
+    ]
+  }
+}

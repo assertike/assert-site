@@ -1,0 +1,157 @@
+[
+  {
+    "title": "CoffeeAnalytics",
+    "slug": "coffeeanalytics",
+    "published": true,
+    "order": 1,
+    "category": "Commercial intelligence",
+    "status": "Available",
+    "tagline": "Connected intelligence for beverage suppliers",
+    "summary": "An AI-driven connected platform that turns consumption and operational data into visibility for stock estimation, forecasting, commercial planning, sales intelligence and service operations.",
+    "image": "coffee-cheers",
+    "body": "CoffeeAnalytics connects equipment in the field to a central analytics platform. Beverage suppliers gain an accurate, near real-time view of consumption across their customer base — and use AI forecasts to plan stock, logistics, sales activity and service visits.",
+    "features": [
+      {
+        "title": "Connected devices",
+        "text": "IoT integration with equipment to capture consumption automatically."
+      },
+      {
+        "title": "AI forecasting",
+        "text": "Predict demand and stock needs per customer and region."
+      },
+      {
+        "title": "Sales intelligence",
+        "text": "Identify growth opportunities and at-risk accounts."
+      },
+      {
+        "title": "Geomarketing",
+        "text": "Map-based insight into performance and potential."
+      }
+    ],
+    "tags": [
+      "IoT",
+      "AI Forecasting",
+      "Analytics",
+      "Geomarketing"
+    ],
+    "website": "https://coffeeanalytics.gr/",
+    "seo": {
+      "title": "CoffeeAnalytics | AI & IoT Platform for Beverage Suppliers",
+      "description": "CoffeeAnalytics by ASSERT: connected-device intelligence, AI forecasting and sales insight for beverage suppliers.",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "LawFlow",
+    "slug": "lawflow",
+    "published": true,
+    "order": 2,
+    "category": "Legal technology",
+    "status": "",
+    "tagline": "AI-assisted legal practice management",
+    "summary": "Legal practice management that reduces administrative work — turning client information into structured matters and organising cases, documents, appointments, notes, tasks and billing.",
+    "image": "legal-document-signing",
+    "body": "LawFlow helps law firms spend less time on administration and more on legal work. AI assists with creating matters from client information, while an integrated workspace keeps every case, document, deadline and invoice in one place.",
+    "features": [
+      {
+        "title": "AI case creation",
+        "text": "Turn client information into structured legal matters automatically."
+      },
+      {
+        "title": "Matter management",
+        "text": "Cases, parties, deadlines and notes organised in one workspace."
+      },
+      {
+        "title": "Documents",
+        "text": "Store, find and reuse documents linked to each matter."
+      },
+      {
+        "title": "Tasks & billing",
+        "text": "Appointments, tasks and billing workflows that keep the practice running."
+      }
+    ],
+    "tags": [
+      "AI Case Creation",
+      "Matter Management",
+      "Documents",
+      "Legal Workflow"
+    ],
+    "website": "",
+    "seo": {
+      "title": "LawFlow | AI-Assisted Legal Practice Management",
+      "description": "LawFlow by ASSERT: AI-assisted legal practice management for cases, documents, appointments, tasks and billing.",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "OpsSight AI",
+    "slug": "opssight-ai",
+    "published": false,
+    "order": 3,
+    "category": "Operational intelligence",
+    "status": "Concept",
+    "tagline": "Unified operational intelligence",
+    "summary": "A concept for KPI monitoring, anomaly detection, predictive alerts and natural-language exploration of enterprise data.",
+    "image": "analytics-dashboard",
+    "body": "Placeholder concept — replace with verified product information before publishing.",
+    "features": [],
+    "tags": [
+      "Concept"
+    ],
+    "website": "",
+    "seo": {
+      "title": "",
+      "description": "",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "CivicFlow",
+    "slug": "civicflow",
+    "published": false,
+    "order": 4,
+    "category": "Public-sector workflow",
+    "status": "Concept",
+    "tagline": "Configurable public-sector workflows",
+    "summary": "A concept for digital case management, approvals, forms, tasks, documents, audit trails and interoperability.",
+    "image": "glass-office-towers",
+    "body": "Placeholder concept — replace with verified product information before publishing.",
+    "features": [],
+    "tags": [
+      "Concept"
+    ],
+    "website": "",
+    "seo": {
+      "title": "",
+      "description": "",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "SecureEdge AI",
+    "slug": "secureedge-ai",
+    "published": false,
+    "order": 5,
+    "category": "Edge intelligence",
+    "status": "Concept",
+    "tagline": "Secure AI at the edge",
+    "summary": "A concept for local computer vision, sensor processing, event detection and secure synchronisation in connectivity-constrained environments.",
+    "image": "circuit-board-red",
+    "body": "Placeholder concept — replace with verified product information before publishing.",
+    "features": [],
+    "tags": [
+      "Concept"
+    ],
+    "website": "",
+    "seo": {
+      "title": "",
+      "description": "",
+      "og_image": "",
+      "noindex": false
+    }
+  }
+]

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block og_image %}{{ page.hero.image }}{% endblock %}
+{% block content %}
+{{ m.page_hero(page.hero, [('Home', '/'), ('Projects', '/projects/')], page.hero.image) }}
+
+<section class="section" aria-labelledby="cases-title">
+  <div class="wrap">
+    <div class="section-head"><div><p class="eyebrow">Case studies</p><h2 class="section-title" id="cases-title">Selected work</h2></div></div>
+    {%- if items %}
+    <ul class="post-grid" role="list">
+      {%- for p in items %}
+      <li class="post-card">
+        <article>
+          <a class="post-media" href="/projects/{{ p.slug }}/" tabindex="-1" aria-hidden="true">{{ img(p.image, sizes='(min-width: 960px) 33vw, 100vw', decorative=True, cls='cover') }}</a>
+          <div class="post-body">
+            <p class="post-meta">{% if p.sector %}<span class="pill">{{ p.sector }}</span>{% endif %}{% if p.client %}<span>{{ p.client }}</span>{% endif %}</p>
+            <h3 class="post-title"><a href="/projects/{{ p.slug }}/">{{ p.title }}</a></h3>
+            <p class="post-excerpt">{{ p.summary }}</p>
+          </div>
+        </article>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- else %}
+    <div class="empty-state">
+      {{ icon('layers', 'icon icon-xl') }}
+      <h3>{{ page.empty.title }}</h3>
+      <p>{{ page.empty.text }}</p>
+      <a class="btn btn-outline" href="/contact/">Contact us</a>
+    </div>
+    {%- endif %}
+  </div>
+</section>
+
+{%- set r = page.rnd %}
+<section class="section section-alt" id="research" aria-labelledby="rnd-title">
+  <div class="grid-lines" aria-hidden="true"></div>
+  <div class="wrap">
+    {{ m.section_head(r, 'rnd-title', dark=False) }}
+    <ul class="feature-grid" role="list">
+      {%- for a in r.areas %}<li class="feature">{{ icon(a.icon or 'spark') }}<h3>{{ a.title }}</h3><p>{{ a.text }}</p></li>{% endfor %}
+    </ul>
+  </div>
+</section>
+
+{{ m.cta_band(page.cta) }}
+{% endblock %}

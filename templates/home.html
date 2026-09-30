@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block body_class %}page-home{% endblock %}
+{% block og_image %}{{ page.hero.image }}{% endblock %}
+{% block head_extra %}
+{%- if page.hero.image and media(page.hero.image) %}
+<link rel="preload" as="image" imagesrcset="{% for w, p in media(page.hero.image).variants.items() %}{{ url_for('static', filename=p) }} {{ w }}w{% if not loop.last %}, {% endif %}{% endfor %}" imagesizes="100vw" fetchpriority="high">
+{%- endif %}
+{% endblock %}
+{% block content %}
+{%- set h = page.hero %}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-media" aria-hidden="true">
+    {{ img(h.image, sizes='100vw', eager=True, decorative=True, cls='cover') }}
+  </div>
+  <div class="hero-shade" aria-hidden="true"></div>
+  <div class="grid-lines" aria-hidden="true"></div>
+  <div class="hero-detections" aria-hidden="true">
+    {%- for d in h.detections[:4] %}
+    <span class="det det-{{ loop.index }}"><span class="det-label">{{ d }}</span></span>
+    {%- endfor %}
+  </div>
+
+  <div class="wrap hero-inner">
+    {{ m.eyebrow(h.eyebrow) }}
+    <h1 id="hero-title" class="hero-title">{{ highlight(h.title, h.highlight) }}</h1>
+    <div class="hero-foot">
+      <p class="hero-lede">{{ h.text }}</p>
+      <div class="actions">
+        {%- if h.primary_label %}<a class="btn btn-primary btn-lg" href="{{ link(h.primary_url) }}">{{ h.primary_label }} <span class="btn-arrow" aria-hidden="true">→</span></a>{% endif %}
+        {%- if h.secondary_label %}<a class="btn btn-ghost btn-lg" href="{{ link(h.secondary_url) }}">{{ h.secondary_label }}</a>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{%- if page.stats %}
+<section class="stats-band" aria-label="Key figures">
+  <div class="wrap">
+    <dl class="stats">
+      {%- for s in page.stats %}
+      <div class="stat reveal"><dt class="stat-label">{{ s.label }}</dt><dd class="stat-value">{{ s.value }}</dd></div>
+      {%- endfor %}
+    </dl>
+  </div>
+</section>
+{%- endif %}
+
+{%- if services %}
+<section class="section" aria-labelledby="services-title">
+  <div class="wrap">
+    {{ m.section_head(page.services_section, 'services-title') }}
+    <ol class="xlist" role="list">
+      {%- for s in services %}{{ m.service_row(s, loop.index) }}{% endfor %}
+    </ol>
+  </div>
+</section>
+{%- endif %}
+
+{%- set lp = page.loop %}
+<section class="section section-alt loop" aria-labelledby="loop-title">
+  <div class="grid-lines" aria-hidden="true"></div>
+  <div class="wrap">
+    {{ m.section_head(lp, 'loop-title') }}
+    <ol class="loop-steps" role="list">
+      {%- for st in lp.steps %}
+      <li class="loop-step reveal">
+        <span class="loop-meta" aria-hidden="true"><span class="loop-index">{{ '%02d' % loop.index }}</span>{{ icon(st.icon or 'spark') }}</span>
+        <h3 class="loop-title">{{ st.title }}</h3>
+        <p>{{ st.text }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+{%- if industries %}
+<section class="section" aria-labelledby="industries-title">
+  <div class="wrap">
+    {{ m.section_head(page.industries_section, 'industries-title') }}
+    <ul class="tile-grid" role="list">
+      {%- for it in industries[:4] %}{{ m.tile(it, '/industries/') }}{% endfor %}
+    </ul>
+    <p class="section-more"><a class="link-more" href="/industries/">All {{ industries | length }} industries <span class="btn-arrow" aria-hidden="true">→</span></a></p>
+  </div>
+</section>
+{%- endif %}
+
+{%- if products %}
+<section class="section section-alt" aria-labelledby="products-title">
+  <div class="wrap">
+    {{ m.section_head(page.products_section, 'products-title') }}
+    <ul class="feature-splits" role="list">
+      {%- for p in products %}{{ m.product_card(p) }}{% endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+
+{%- set st = page.stack %}
+{%- if st['items'] %}
+<section class="section" aria-labelledby="stack-title">
+  <div class="wrap">
+    {{ m.section_head(st, 'stack-title') }}
+    <ul class="stack-words" role="list">
+      {%- for t in st['items'] %}<li>{{ t }}</li>{% endfor %}
+    </ul>
+  </div>
+</section>
+{%- endif %}
+
+{%- if posts %}
+<section class="section section-alt" aria-labelledby="insights-title">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="section-head-main">{{ m.eyebrow(page.insights_section.eyebrow) }}<h2 class="section-title" id="insights-title">{{ page.insights_section.title }}</h2></div>
+      <a class="link-more" href="/insights/">All insights <span class="btn-arrow" aria-hidden="true">→</span></a>
+    </div>
+    <ul class="post-grid" role="list">{% for p in posts %}{{ m.post_card(p) }}{% endfor %}</ul>
+  </div>
+</section>
+{%- endif %}
+
+{{ m.cta_band(page.cta) }}
+{% endblock %}

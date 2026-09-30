@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}{{ item.title }}{% endblock %}
+{% block description %}{{ item.summary }}{% endblock %}
+{% block og_image %}{{ item.image }}{% endblock %}
+{% block content %}
+{{ m.page_hero({'eyebrow': 'Service', 'title': item.title, 'text': item.intro or item.summary},
+               [('Home', '/'), ('Services', '/services/'), (item.title, request.path)], item.image) }}
+
+<div class="section">
+  <div class="wrap detail">
+    <div class="detail-main">
+      {%- if item.body %}<div class="prose prose-lg">{{ md(item.body) }}</div>{% endif %}
+
+      {%- if item.capabilities %}
+      <section class="detail-block" aria-labelledby="caps-title">
+        <h2 id="caps-title" class="block-title">Capabilities</h2>
+        <ul class="check-grid" role="list">{% for c in item.capabilities %}<li>{{ c }}</li>{% endfor %}</ul>
+      </section>
+      {%- endif %}
+
+      {%- if item.outcomes %}
+      <section class="detail-block" aria-labelledby="outcomes-title">
+        <h2 id="outcomes-title" class="block-title">What you get</h2>
+        <ul class="feature-grid feature-grid-2" role="list">
+          {%- for o in item.outcomes %}<li class="feature"><h3>{{ o.title }}</h3><p>{{ o.text }}</p></li>{% endfor %}
+        </ul>
+      </section>
+      {%- endif %}
+
+    </div>
+
+    <aside class="detail-aside" aria-label="Service details">
+      <div class="aside-card">
+        {%- if item.technologies %}
+        <h2 class="aside-title">Technologies</h2>
+        <ul class="tag-list" role="list">{% for t in item.technologies %}<li>{{ t }}</li>{% endfor %}</ul>
+        {%- endif %}
+        <h2 class="aside-title">Start a project</h2>
+        <p>Tell us about the problem you need to solve. We’ll reply within one business day.</p>
+        <a class="btn btn-primary btn-block" href="/contact/?topic={{ item.title | urlencode }}">Discuss {{ item.title }}</a>
+        <p class="aside-contact"><a href="mailto:{{ site.contact.email }}">{{ site.contact.email }}</a><br><a href="tel:{{ site.contact.phone | replace('.', '') }}">{{ site.contact.phone }}</a></p>
+      </div>
+    </aside>
+  </div>
+</div>
+
+{%- if others %}
+<section class="section section-tint" aria-labelledby="more-title">
+  <div class="wrap">
+    <div class="section-head"><div><p class="eyebrow">More capabilities</p><h2 class="section-title" id="more-title">Explore other services</h2></div></div>
+    <ol class="xlist" role="list">
+      {%- for s in others[:3] %}{{ m.service_row(s, s.order) }}{% endfor %}
+    </ol>
+  </div>
+</section>
+{%- endif %}
+{% endblock %}

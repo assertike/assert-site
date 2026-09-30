@@ -1,0 +1,18 @@
+{
+  "seo": {
+    "title": "Insights & News | AI, Computer Vision & IoT",
+    "description": "Articles and news from ASSERT on artificial intelligence, computer vision, IoT, edge computing and building software that lasts.",
+    "og_image": "",
+    "noindex": false
+  },
+  "hero": {
+    "eyebrow": "Insights & News",
+    "title": "Insights & news.",
+    "text": "Perspectives from our engineers on AI, computer vision, IoT and building technology that works in the real world.",
+    "image": ""
+  },
+  "empty": {
+    "title": "No posts yet",
+    "text": "We’re working on our first articles. Please check back soon."
+  }
+}

@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+dist/
+.env
+.env.*
+!.env.example
+.git/
+.gitignore
+.idea/
+.DS_Store
+data/.secret_key
+data/.backups/
+data/users.json
+data/messages.json
+docker-compose*.yml

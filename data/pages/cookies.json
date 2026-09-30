@@ -1,0 +1,14 @@
+{
+  "seo": {
+    "title": "Cookie Policy",
+    "description": "ASSERT’s website does not use advertising or tracking cookies. Learn which strictly necessary cookies are used and why.",
+    "og_image": "",
+    "noindex": false
+  },
+  "hero": {
+    "title": "Cookie policy",
+    "text": "A short, plain-language explanation of the cookies used on this website."
+  },
+  "updated": "2026-09-30",
+  "body": "## The short version\n\n**Visitors to this website are not tracked.** The public pages of assert.gr do not set advertising, analytics or social-media cookies, and our fonts and images are served from our own server rather than third parties.\n\n## Strictly necessary cookies\n\n| Cookie | Purpose | Duration |\n| --- | --- | --- |\n| `session` | Keeps authorised editors signed in to the content management area. It is only set after logging in to the admin area. | Up to 8 hours |\n\nStrictly necessary cookies do not require consent under the ePrivacy Directive and Greek Law 3471/2006.\n\n## Managing cookies\n\nYou can delete or block cookies in your browser settings at any time. Blocking cookies will not affect your ability to browse the public website.\n\n## Changes\n\nIf we introduce any new cookies — for example, privacy-friendly analytics — we will update this page and, where required, ask for your consent first.\n\nQuestions? Email [info@assert.gr](mailto:info@assert.gr)."
+}

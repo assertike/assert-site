@@ -1,0 +1,315 @@
+[
+  {
+    "title": "Artificial Intelligence",
+    "slug": "artificial-intelligence",
+    "published": true,
+    "order": 1,
+    "icon": "ai",
+    "summary": "Generative AI, AI agents, document intelligence and predictive analytics — designed for production and measurable outcomes.",
+    "image": "ai-3d-render",
+    "intro": "We design AI that automates knowledge work, reveals patterns in data and supports faster, better-informed decisions — with secure integration, governed data and workflows that fit your organisation.",
+    "body": "## Built for production, not just the demo\n\nMany AI initiatives stall between a promising pilot and a system people rely on every day. We close that gap by treating AI as part of a complete software system: data pipelines, evaluation, security, user experience and operations are designed together from the start.\n\n## Private and secure by design\n\nWhere data is sensitive, we deploy models on your own infrastructure or in a private cloud, keep humans in the loop for critical decisions and log what the system does so results can be audited.",
+    "capabilities": [
+      "Generative AI, LLM applications and private AI deployments",
+      "AI agents and workflow automation",
+      "Retrieval-augmented generation and enterprise knowledge search",
+      "Document intelligence and natural-language processing",
+      "Machine learning, forecasting and predictive analytics",
+      "AI strategy, readiness assessment and governance"
+    ],
+    "outcomes": [
+      {
+        "title": "Less manual knowledge work",
+        "text": "Automate reading, classifying, summarising and routing of documents and requests."
+      },
+      {
+        "title": "Decisions backed by data",
+        "text": "Forecasts and recommendations that are explainable and integrated into existing tools."
+      },
+      {
+        "title": "Your data stays yours",
+        "text": "On-premise, private-cloud and open-model options for sensitive environments."
+      },
+      {
+        "title": "Measurable results",
+        "text": "Clear evaluation metrics agreed up front, and monitored after go-live."
+      }
+    ],
+    "technologies": [
+      "Python",
+      "PyTorch",
+      "LLMs",
+      "RAG",
+      "Vector databases",
+      "scikit-learn",
+      "FastAPI",
+      "Docker"
+    ],
+    "seo": {
+      "title": "Artificial Intelligence Solutions | Generative AI & ML",
+      "description": "Production-ready AI from ASSERT: generative AI and LLM applications, AI agents, document intelligence, forecasting and private AI deployments.",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "Computer Vision",
+    "slug": "computer-vision",
+    "published": true,
+    "order": 2,
+    "icon": "vision",
+    "summary": "Real-time video analytics that detect, count, track and inspect — running at the edge, on-premise or in the cloud.",
+    "image": "saildrone-ocean-research",
+    "intro": "We turn cameras into intelligent sensors. Our computer-vision systems analyse video in real time to detect objects and events, measure activity and automate visual inspection.",
+    "body": "## From pixels to decisions\n\nVideo is one of the richest sources of information about the physical world — and one of the hardest to use at scale. We build complete pipelines: camera integration, model training on your conditions, edge or server inference, and dashboards and alerts that operators actually use.\n\n## Privacy-preserving by default\n\nWhere people may appear on camera, we process video on-device where possible, store only the events and metrics you need, and apply anonymisation such as face and plate blurring.",
+    "capabilities": [
+      "Object detection, classification and tracking",
+      "People, vehicle and crowd analytics",
+      "Anomaly and event detection with real-time alerts",
+      "Automated visual quality inspection",
+      "Text and document recognition (OCR)",
+      "Multi-camera analytics and operator dashboards"
+    ],
+    "outcomes": [
+      {
+        "title": "Faster response",
+        "text": "Operators are alerted to relevant events in seconds instead of watching screens."
+      },
+      {
+        "title": "Consistent inspection",
+        "text": "Automated visual checks that do not tire, at production-line speed."
+      },
+      {
+        "title": "Lower bandwidth",
+        "text": "Edge inference sends events and metadata instead of raw video streams."
+      },
+      {
+        "title": "Actionable metrics",
+        "text": "Counts, flows and dwell times that feed planning and reporting."
+      }
+    ],
+    "technologies": [
+      "OpenCV",
+      "PyTorch",
+      "ONNX",
+      "NVIDIA Jetson",
+      "GStreamer",
+      "TensorRT",
+      "Python"
+    ],
+    "seo": {
+      "title": "Computer Vision & Video Analytics Solutions",
+      "description": "Real-time computer vision from ASSERT: object detection and tracking, crowd and traffic analytics, visual inspection and privacy-preserving edge AI.",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "Internet of Things & Edge",
+    "slug": "internet-of-things",
+    "published": true,
+    "order": 3,
+    "icon": "iot",
+    "summary": "Connected sensors, devices and edge computing that turn physical assets and environments into reliable, real-time data.",
+    "image": "circuit-board-glow",
+    "intro": "We design IoT systems end to end — from sensors and gateways to secure data pipelines, edge processing and the applications that make the data useful.",
+    "body": "## Reliable data from the physical world\n\nIoT projects succeed or fail on the basics: devices that keep working in the field, connectivity that tolerates interruptions, and data that can be trusted. Our embedded-systems background means we design for these realities from the start.\n\n## Intelligence at the edge\n\nProcessing data close to where it is generated reduces latency, bandwidth and cost — and keeps systems running when the network does not. We combine edge computing with cloud or on-premise platforms for the best of both.",
+    "capabilities": [
+      "Sensor, device and gateway integration",
+      "Edge computing and on-device AI",
+      "Secure telemetry pipelines (MQTT, HTTP, LoRaWAN, cellular)",
+      "Real-time monitoring dashboards and alerting",
+      "Device fleet management and over-the-air updates",
+      "Integration with ERP, maintenance and business systems"
+    ],
+    "outcomes": [
+      {
+        "title": "Visibility in real time",
+        "text": "Know the state of assets, stock and environments without manual checks."
+      },
+      {
+        "title": "Less downtime",
+        "text": "Condition monitoring and alerts that catch problems early."
+      },
+      {
+        "title": "Resilient operation",
+        "text": "Edge logic that keeps working when connectivity is lost."
+      },
+      {
+        "title": "Secure by design",
+        "text": "Device identity, encrypted communication and controlled updates."
+      }
+    ],
+    "technologies": [
+      "MQTT",
+      "Embedded C/C++",
+      "Python",
+      "Time-series databases",
+      "Grafana",
+      "Docker",
+      "LoRaWAN"
+    ],
+    "seo": {
+      "title": "IoT & Edge Computing Solutions",
+      "description": "End-to-end IoT from ASSERT: sensor and device integration, edge computing, secure telemetry, real-time dashboards and business-system integration.",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "Defence & Security",
+    "slug": "defence-and-security",
+    "published": true,
+    "order": 4,
+    "icon": "shield",
+    "summary": "Mission-oriented software, situational awareness, sensor integration and secure decision-support systems.",
+    "image": "cockpit-control-panel",
+    "intro": "ASSERT develops software and intelligent systems for defence, security and mission-critical environments, with emphasis on interoperability, situational awareness, resilience and operational usability.",
+    "body": "## Designed for demanding environments\n\nMission-critical systems must work under pressure, with limited connectivity and strict security requirements. We engineer for resilience, clear operator interfaces and secure integration with existing platforms.\n\n## Multi-modal awareness\n\nBy combining video, radar, acoustic and other sensor data with AI-assisted analysis, we help operators detect threats earlier and with fewer false alarms.",
+    "capabilities": [
+      "Command, control and mission-management software",
+      "Situational awareness and geospatial applications",
+      "Perimeter surveillance and threat detection",
+      "Sensor and multi-modal data integration",
+      "AI-assisted analysis and computer vision",
+      "Edge processing and secure integration architectures"
+    ],
+    "outcomes": [
+      {
+        "title": "A shared operational picture",
+        "text": "Sensor feeds, events and maps brought together in one interface."
+      },
+      {
+        "title": "Earlier detection",
+        "text": "AI-assisted analysis that highlights what matters to operators."
+      },
+      {
+        "title": "Resilience",
+        "text": "Edge-capable architectures that tolerate degraded networks."
+      },
+      {
+        "title": "Interoperability",
+        "text": "Open interfaces that integrate with existing systems and standards."
+      }
+    ],
+    "technologies": [
+      "Java",
+      "Spring Boot",
+      "Python",
+      "Geospatial (GIS)",
+      "Computer Vision",
+      "Edge AI",
+      "Secure networking"
+    ],
+    "seo": {
+      "title": "Defence & Security Technology Solutions",
+      "description": "Mission-oriented software from ASSERT: situational awareness, perimeter surveillance, sensor integration, AI-assisted analysis and secure edge systems.",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "Custom Software & Product Development",
+    "slug": "custom-software-development",
+    "published": true,
+    "order": 5,
+    "icon": "code",
+    "summary": "Enterprise applications, SaaS products, APIs and modern platforms engineered with Python, Java/Spring, React and Angular.",
+    "image": "source-code-screen",
+    "intro": "We build digital products and enterprise applications where off-the-shelf software is not enough — from discovery and architecture to UX, engineering, testing, deployment and ongoing evolution.",
+    "body": "## Engineering you can own\n\nWe write software that your organisation can understand, operate and extend: clear architecture, automated tests, documentation and continuous delivery are part of every engagement, not optional extras.\n\n## Core engineering stack\n\nPython for AI, automation and backend services; Java and Spring Boot for enterprise platforms and transactional systems; React and Angular for modern, maintainable and accessible web interfaces.",
+    "capabilities": [
+      "Enterprise web applications and SaaS platforms",
+      "Workflow, case-management and business applications",
+      "Data-intensive and AI-powered applications",
+      "APIs, integration services and microservices",
+      "IoT and real-time monitoring platforms",
+      "Legacy modernisation and MVP development"
+    ],
+    "outcomes": [
+      {
+        "title": "Software that fits",
+        "text": "Built around your processes rather than forcing you to adapt to a product."
+      },
+      {
+        "title": "Faster time to value",
+        "text": "Iterative delivery with working software early and often."
+      },
+      {
+        "title": "Lower long-term cost",
+        "text": "Maintainable code and automated testing reduce the cost of change."
+      },
+      {
+        "title": "Accessible interfaces",
+        "text": "User interfaces designed to WCAG standards from the start."
+      }
+    ],
+    "technologies": [
+      "Python",
+      "Java",
+      "Spring Boot",
+      "React",
+      "Angular",
+      "TypeScript",
+      "PostgreSQL",
+      "Docker",
+      "Kubernetes"
+    ],
+    "seo": {
+      "title": "Custom Software Development | Python, Java, React",
+      "description": "Custom software and product development from ASSERT: enterprise applications, SaaS, APIs and platforms built with Python, Java/Spring, React and Angular.",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "IT Consulting",
+    "slug": "it-consulting",
+    "published": true,
+    "order": 6,
+    "icon": "consulting",
+    "summary": "Technology strategy, requirements, architecture and delivery assurance for complex public and private-sector IT programmes.",
+    "image": "consulting-strategy-workshop",
+    "intro": "We advise public-sector organisations and private enterprises on complex IT initiatives, connecting business requirements, technology choices, procurement needs and implementation reality.",
+    "body": "## Advice grounded in delivery\n\nOur consultants are engineers who build systems. That means recommendations are practical, costed and deliverable — and that technical specifications reflect what the market can actually provide.\n\n## Independent and pragmatic\n\nWhether you need a digital-transformation roadmap, a technical specification for a tender or an independent architecture review, we focus on reducing risk and maximising value.",
+    "capabilities": [
+      "Digital transformation and IT strategy",
+      "Requirements and business analysis",
+      "Solution and enterprise architecture",
+      "Technical specifications and technology assessment",
+      "AI strategy and readiness",
+      "Architecture reviews, project governance and delivery assurance"
+    ],
+    "outcomes": [
+      {
+        "title": "Clear direction",
+        "text": "A roadmap that links technology investment to business outcomes."
+      },
+      {
+        "title": "Better specifications",
+        "text": "Requirements that are complete, testable and realistic."
+      },
+      {
+        "title": "Reduced delivery risk",
+        "text": "Independent reviews that catch problems before they become expensive."
+      },
+      {
+        "title": "Informed decisions",
+        "text": "Objective technology assessments and options analysis."
+      }
+    ],
+    "technologies": [
+      "Enterprise architecture",
+      "TOGAF-aligned practices",
+      "Agile delivery",
+      "Cloud strategy",
+      "Interoperability standards"
+    ],
+    "seo": {
+      "title": "IT Consulting | Strategy, Architecture & Specifications",
+      "description": "IT consulting from ASSERT: digital transformation, requirements analysis, solution architecture, technical specifications and delivery assurance.",
+      "og_image": "",
+      "noindex": false
+    }
+  }
+]

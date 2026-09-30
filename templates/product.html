@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}{{ item.title }}{% if item.tagline %} — {{ item.tagline }}{% endif %}{% endblock %}
+{% block description %}{{ item.summary }}{% endblock %}
+{% block og_image %}{{ item.image }}{% endblock %}
+{% block content %}
+{{ m.page_hero({'eyebrow': item.category or 'Product', 'title': item.title, 'text': item.tagline},
+               [('Home', '/'), ('Products', '/products/'), (item.title, request.path)], item.image) }}
+
+<div class="section">
+  <div class="wrap detail">
+    <div class="detail-main">
+      <p class="lead">{{ item.summary }}</p>
+      {%- if item.body %}<div class="prose prose-lg">{{ md(item.body) }}</div>{% endif %}
+
+      {%- if item.features %}
+      <section class="detail-block" aria-labelledby="features-title">
+        <h2 id="features-title" class="block-title">Key features</h2>
+        <ul class="feature-grid feature-grid-2" role="list">
+          {%- for f in item.features %}<li class="feature"><h3>{{ f.title }}</h3><p>{{ f.text }}</p></li>{% endfor %}
+        </ul>
+      </section>
+      {%- endif %}
+    </div>
+    <aside class="detail-aside" aria-label="Product details">
+      <div class="aside-card">
+        {%- if item.status %}<p><span class="status status-{{ item.status | lower | replace(' ', '-') }}">{{ item.status }}</span></p>{% endif %}
+        {%- if item.tags %}
+        <h2 class="aside-title">Capabilities</h2>
+        <ul class="tag-list" role="list">{% for t in item.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+        {%- endif %}
+        {%- if item.website %}
+        <a class="btn btn-primary btn-block" href="{{ item.website }}" rel="noopener" target="_blank">Visit {{ item.title }} <span class="visually-hidden">(opens in a new tab)</span><span aria-hidden="true" class="btn-arrow">↗</span></a>
+        {%- endif %}
+        <a class="btn btn-outline btn-block" href="/contact/?topic={{ item.title | urlencode }}">Request a demo</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+{%- if others %}
+<section class="section section-tint" aria-labelledby="more-title">
+  <div class="wrap">
+    <div class="section-head"><div><p class="eyebrow">Portfolio</p><h2 class="section-title" id="more-title">Other products</h2></div></div>
+    <ul class="feature-splits" role="list">{% for p in others[:2] %}{{ m.product_card(p) }}{% endfor %}</ul>
+  </div>
+</section>
+{%- endif %}
+{% endblock %}

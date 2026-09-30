@@ -1,0 +1,116 @@
+{
+  "seo": {
+    "title": "ASSERT | AI, Computer Vision & IoT Solutions in Greece",
+    "description": "ASSERT builds AI, computer vision, IoT and custom software solutions that turn real-world data into real-time decisions for public and private organisations.",
+    "og_image": "",
+    "noindex": false
+  },
+  "hero": {
+    "eyebrow": "AI · Computer Vision · IoT · Software",
+    "title": "Empowering the physical world with intelligence.",
+    "highlight": "with intelligence",
+    "text": "ASSERT blends artificial intelligence, computer vision and the Internet of Things with engineering-led software to deliver scalable, real-time systems that see, understand and act.",
+    "image": "smart-city-skyline",
+    "primary_label": "Discuss your project",
+    "primary_url": "/contact/",
+    "secondary_label": "Explore our capabilities",
+    "secondary_url": "/services/",
+    "detections": [
+      "building · 0.98",
+      "traffic · 0.93",
+      "anomaly · 0.87",
+      "sensor · online"
+    ]
+  },
+  "stats": [
+    {
+      "value": "2025",
+      "label": "Founded in Athens, Greece"
+    },
+    {
+      "value": "20+",
+      "label": "Years of combined founder experience"
+    },
+    {
+      "value": "6",
+      "label": "Core capabilities under one roof"
+    },
+    {
+      "value": "Edge → Cloud",
+      "label": "On-premise, hybrid or cloud deployment"
+    }
+  ],
+  "services_section": {
+    "eyebrow": "What we do",
+    "title": "Six capabilities. One technology partner.",
+    "text": "We combine applied AI, computer vision, IoT, software engineering and consulting to take organisations from the first requirement to a system running in production."
+  },
+  "loop": {
+    "eyebrow": "How our systems work",
+    "title": "Sense. Understand. Act.",
+    "text": "We bridge the gap between sensing and reasoning — building systems that turn raw signals into decisions, so people can focus on outcomes, not data noise.",
+    "steps": [
+      {
+        "title": "Sense",
+        "text": "Cameras, sensors and connected devices capture what is happening in the physical world — reliably, securely and in real time.",
+        "icon": "iot"
+      },
+      {
+        "title": "Understand",
+        "text": "AI and computer-vision models turn video, telemetry and documents into structured, trustworthy insight, at the edge or in the cloud.",
+        "icon": "ai"
+      },
+      {
+        "title": "Act",
+        "text": "Dashboards, alerts, automated workflows and integrations put that insight to work exactly where decisions are made.",
+        "icon": "target"
+      }
+    ]
+  },
+  "industries_section": {
+    "eyebrow": "Industries",
+    "title": "Technology shaped by the environment it operates in.",
+    "text": "Reusable engineering capabilities, combined with an understanding of each sector’s users, regulations and operational realities."
+  },
+  "products_section": {
+    "eyebrow": "Products",
+    "title": "We build technology, not presentations.",
+    "text": "Our products turn domain knowledge, connected data and AI into practical tools for specialised markets."
+  },
+  "stack": {
+    "eyebrow": "Technology",
+    "title": "Modern engineering, selected for the problem.",
+    "text": "Proven technologies that can be maintained, integrated and scaled long after launch.",
+    "items": [
+      "Python",
+      "Java",
+      "Spring Boot",
+      "React",
+      "Angular",
+      "TypeScript",
+      "PyTorch",
+      "Generative AI & LLMs",
+      "Computer Vision",
+      "OpenCV",
+      "Edge AI",
+      "MQTT",
+      "REST & GraphQL APIs",
+      "Microservices",
+      "Docker",
+      "Kubernetes",
+      "PostgreSQL",
+      "Cloud & On-Premise"
+    ]
+  },
+  "insights_section": {
+    "eyebrow": "Insights & News",
+    "title": "Latest thinking from our engineers"
+  },
+  "cta": {
+    "eyebrow": "Build with ASSERT",
+    "title": "Have a technology challenge worth solving?",
+    "text": "Bring us the problem. We’ll help shape the requirements, choose the architecture and build the solution.",
+    "button_label": "Start a conversation",
+    "button_url": "/contact/"
+  }
+}

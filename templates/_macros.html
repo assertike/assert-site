@@ -1,0 +1,127 @@
+{% macro eyebrow(text, dark=False) -%}
+{%- if text %}<p class="eyebrow">{{ text }}</p>{% endif -%}
+{%- endmacro %}
+
+{% macro section_head(s, id=None, dark=False, level=2) -%}
+<div class="section-head">
+  <div class="section-head-main">
+    {{ eyebrow(s.eyebrow) }}
+    {%- if s.title %}<h{{ level }} class="section-title"{% if id %} id="{{ id }}"{% endif %}>{{ s.title }}</h{{ level }}>{% endif %}
+  </div>
+  {%- if s.text %}<p class="section-lede">{{ s.text }}</p>{% endif %}
+</div>
+{%- endmacro %}
+
+{% macro breadcrumbs(trail) -%}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    {%- for name, url in trail %}
+    <li>{% if loop.last %}<span aria-current="page">{{ name }}</span>{% else %}<a href="{{ url }}">{{ name }}</a>{% endif %}</li>
+    {%- endfor %}
+  </ol>
+</nav>
+{%- endmacro %}
+
+{#- Inner-page header: oversized title, then a wide cinematic image panel. -#}
+{% macro page_hero(hero, trail, image=None, meta=None) -%}
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="wrap">
+    {{ breadcrumbs(trail) }}
+    {{ eyebrow(hero.eyebrow) }}
+    <h1 id="page-title" class="page-title">{{ hero.title }}</h1>
+    {%- if hero.text or meta %}
+    <div class="page-hero-foot">
+      {%- if hero.text %}<p class="page-lede">{{ hero.text }}</p>{% endif %}
+      {%- if meta %}<div class="page-meta">{{ meta }}</div>{% endif %}
+    </div>
+    {%- endif %}
+  </div>
+  {%- if image and media(image) %}
+  <div class="wrap">
+    <figure class="hero-banner viewfinder is-on">
+      {{ img(image, sizes='(min-width: 1400px) 1320px, 100vw', eager=True, cls='cover') }}
+      <span class="scan" aria-hidden="true"></span>
+    </figure>
+  </div>
+  {%- endif %}
+</section>
+{%- endmacro %}
+
+{% macro cta_band(c) -%}
+{%- if c and c.title %}
+<section class="cta-band" aria-labelledby="cta-title">
+  <div class="wrap cta-inner">
+    <div class="cta-copy">
+      {{ eyebrow(c.eyebrow) }}
+      <h2 id="cta-title" class="cta-title">{{ c.title }}</h2>
+      {%- if c.text %}<p class="cta-text">{{ c.text }}</p>{% endif %}
+    </div>
+    {%- if c.button_label %}
+    <a class="btn-orb" href="{{ link(c.button_url) }}"><span>{{ c.button_label }}</span><span class="btn-orb-arrow" aria-hidden="true">→</span></a>
+    {%- endif %}
+  </div>
+</section>
+{%- endif %}
+{%- endmacro %}
+
+{#- Editorial full-width row used for services. -#}
+{% macro service_row(s, n, base='/services/', heading='h3') -%}
+<li class="xrow">
+  <a class="xrow-link" href="{{ base }}{{ s.slug }}/">
+    <span class="xrow-num" aria-hidden="true">{{ '%02d' % n }}</span>
+    <{{ heading }} class="xrow-title">{{ s.title }}</{{ heading }}>
+    <span class="xrow-text">{{ s.summary }}</span>
+    <span class="xrow-go" aria-hidden="true">→</span>
+  </a>
+</li>
+{%- endmacro %}
+
+{% macro service_card(s, n, base='/services/') -%}{{ service_row(s, n, base) }}{%- endmacro %}
+
+{% macro tile(it, base, heading='h3', sizes='(min-width: 960px) 50vw, 100vw') -%}
+<li class="tile">
+  <a href="{{ base }}{{ it.slug }}/" class="tile-link">
+    <span class="tile-media">{{ img(it.image, sizes=sizes, decorative=True, cls='cover') }}</span>
+    <span class="tile-body">
+      <span class="tile-top">
+        {%- if it.icon %}<span class="tile-icon">{{ icon(it.icon) }}</span>{% endif %}
+        <span class="tile-go" aria-hidden="true">↗</span>
+      </span>
+      <{{ heading }} class="tile-title">{{ it.title }}</{{ heading }}>
+      <span class="tile-text">{{ it.summary }}</span>
+    </span>
+  </a>
+</li>
+{%- endmacro %}
+
+{% macro post_card(p, heading='h3') -%}
+<li class="post-card">
+  <article>
+    <a class="post-media" href="/insights/{{ p.slug }}/" tabindex="-1" aria-hidden="true">{{ img(p.image, sizes='(min-width: 960px) 33vw, 100vw', decorative=True, cls='cover') }}</a>
+    <div class="post-body">
+      <p class="post-meta">{% if p.category %}<span class="pill">{{ p.category }}</span>{% endif %}<time datetime="{{ p.date }}">{{ fmt_date(p.date) }}</time></p>
+      <{{ heading }} class="post-title"><a href="/insights/{{ p.slug }}/">{{ p.title }}</a></{{ heading }}>
+      <p class="post-excerpt">{{ p.excerpt }}</p>
+    </div>
+  </article>
+</li>
+{%- endmacro %}
+
+{#- Large alternating split feature for products. -#}
+{% macro product_card(p, heading='h3') -%}
+<li class="feature-split">
+  <a href="/products/{{ p.slug }}/" class="feature-split-link">
+    <span class="feature-split-media viewfinder">{{ img(p.image, sizes='(min-width: 960px) 55vw, 100vw', decorative=True, cls='cover') }}</span>
+    <span class="feature-split-body">
+      <span class="product-top">
+        {%- if p.category %}<span class="eyebrow">{{ p.category }}</span>{% endif %}
+        {%- if p.status %}<span class="status status-{{ p.status | lower | replace(' ', '-') }}">{{ p.status }}</span>{% endif %}
+      </span>
+      <{{ heading }} class="feature-split-title">{{ p.title }}</{{ heading }}>
+      {%- if p.tagline %}<span class="feature-split-tagline">{{ p.tagline }}</span>{% endif %}
+      <span class="feature-split-text">{{ p.summary }}</span>
+      <span class="link-more" aria-hidden="true">View product <span class="btn-arrow">→</span></span>
+    </span>
+  </a>
+</li>
+{%- endmacro %}

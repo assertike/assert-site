@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+{% block title %}Sign in{% endblock %}
+{% block auth %}
+<div class="auth-card">
+  <img class="logo-for-dark" src="{{ url_for('static', filename='img/logo.png') }}" alt="{{ site.brand.name }}" width="180" height="33">
+  <img class="logo-for-light" src="{{ url_for('static', filename='img/logo-dark.png') }}" alt="{{ site.brand.name }}" width="180" height="33">
+  <h1>Sign in to the CMS</h1>
+  {%- if not has_users %}
+  <p class="flash flash-error">No admin user exists yet. Create one from the terminal:<br><code>python manage.py create-admin</code></p>
+  {%- endif %}
+  {%- if error %}<p class="flash flash-error" role="alert">{{ error }}</p>{% endif %}
+  <form method="post" class="stack">
+    <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+    <div class="fi">
+      <label for="username">Username</label>
+      <input id="username" name="username" autocomplete="username" required autofocus value="{{ request.form.get('username', '') }}">
+    </div>
+    <div class="fi">
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required>
+    </div>
+    <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+  </form>
+  <p class="muted small"><a href="/">← Back to the website</a></p>
+</div>
+{% endblock %}

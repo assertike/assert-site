@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}{{ page.hero.title }}{% endblock %}
+{% block og_image %}{{ page.hero.image }}{% endblock %}
+{% macro err(name) -%}
+{%- if errors[name] %}<p class="field-error" id="{{ name }}-error"><span aria-hidden="true">!</span> {{ errors[name] }}</p>{% endif -%}
+{%- endmacro %}
+{% macro invalid(name, hint=None) -%}
+{%- if errors[name] %} aria-invalid="true" aria-describedby="{{ name }}-error{% if hint %} {{ hint }}{% endif %}"{% elif hint %} aria-describedby="{{ hint }}"{% endif -%}
+{%- endmacro %}
+{% block content %}
+{{ m.page_hero(page.hero, [('Home', '/'), ('Contact', '/contact/')], page.hero.image) }}
+{%- set c = site.contact %}
+{%- set f = page.form %}
+{%- set pre_topic = values.topic or request.args.get('topic', '') %}
+
+<section class="section" aria-labelledby="form-title">
+  <div class="wrap contact-layout">
+    <div class="contact-form-wrap" id="form">
+      <h2 class="section-title" id="form-title">{{ f.title }}</h2>
+      <p class="section-lede">{{ f.intro }}</p>
+
+      <div id="form-status" tabindex="-1" data-focus-on-load="{{ 'true' if sent or errors else 'false' }}">
+        {%- if sent %}
+        <div class="alert alert-success" role="status">
+          <h3>Thank you — your message has been sent.</h3>
+          <p>{{ f.success }}</p>
+        </div>
+        {%- elif errors %}
+        <div class="alert alert-error" role="alert">
+          <h3>Please correct {{ errors | length }} {{ 'problem' if errors|length == 1 else 'problems' }} before sending:</h3>
+          <ul>{% for k, v in errors.items() %}<li>{% if k != 'form' %}<a href="#f-{{ k }}">{{ v }}</a>{% else %}{{ v }}{% endif %}</li>{% endfor %}</ul>
+        </div>
+        {%- endif %}
+      </div>
+
+      {%- if static_export %}
+      <p class="alert">To send us a message, email <a href="mailto:{{ c.email }}">{{ c.email }}</a> or call <a href="tel:{{ c.phone | replace('.', '') }}">{{ c.phone }}</a>.</p>
+      {%- else %}
+      <form class="form" method="post" action="{{ url_for('contact') }}#form-status" novalidate>
+        <input type="hidden" name="token" value="{{ token }}">
+        <div class="hp" aria-hidden="true"><label for="f-website">Leave this field empty</label><input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+        <p class="form-note">Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required.</p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="f-name">Full name <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required value="{{ values.name }}"{{ invalid('name') }}>
+            {{ err('name') }}
+          </div>
+          <div class="field">
+            <label for="f-email">Work email <span class="req" aria-hidden="true">*</span></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required value="{{ values.email }}"{{ invalid('email') }}>
+            {{ err('email') }}
+          </div>
+          <div class="field">
+            <label for="f-company">Organisation</label>
+            <input id="f-company" name="company" type="text" autocomplete="organization" value="{{ values.company }}">
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" value="{{ values.phone }}">
+          </div>
+          <div class="field field-full">
+            <label for="f-topic">What can we help with?</label>
+            <select id="f-topic" name="topic">
+              {%- for t in f.topics %}<option{% if t == pre_topic %} selected{% endif %}>{{ t }}</option>{% endfor %}
+              {%- if pre_topic and pre_topic not in f.topics %}<option selected>{{ pre_topic }}</option>{% endif %}
+            </select>
+          </div>
+          <div class="field field-full">
+            <label for="f-message">Your message <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="f-message" name="message" rows="7" required{{ invalid('message', 'message-hint') }}>{{ values.message }}</textarea>
+            <p class="field-hint" id="message-hint">Describe the problem, the people who will use the solution, and any timeline or constraints.</p>
+            {{ err('message') }}
+          </div>
+          <div class="field field-full field-check">
+            <input id="f-consent" name="consent" type="checkbox" value="1" required{% if request.form.get('consent') %} checked{% endif %}{{ invalid('consent') }}>
+            <label for="f-consent">I agree that {{ site.brand.name }} may use these details to reply to my enquiry, as described in the <a href="/privacy-policy/">privacy policy</a>. <span class="req" aria-hidden="true">*</span></label>
+            {{ err('consent') }}
+          </div>
+        </div>
+        <button class="btn btn-primary btn-lg" type="submit">Send message <span class="btn-arrow" aria-hidden="true">→</span></button>
+        <p class="form-privacy">{{ f.privacy_note }}</p>
+      </form>
+      {%- endif %}
+    </div>
+
+    <div class="contact-aside">
+      <div class="contact-card">
+        <h2 class="aside-title">Contact details</h2>
+        <ul class="contact-list" role="list">
+          <li>{{ icon('mail') }}<div><span class="label">Email</span><a href="mailto:{{ c.email }}">{{ c.email }}</a></div></li>
+          <li>{{ icon('phone') }}<div><span class="label">Phone</span><a href="tel:{{ c.phone | replace('.', '') }}">{{ c.phone }}</a></div></li>
+          <li>{{ icon('pin') }}<div><span class="label">Office</span><address>{{ c.street }}<br>{{ c.locality }}{% if c.region %}, {{ c.region }}{% endif %}</address>
+            {%- if c.map_url %}<a class="link-arrow small" href="{{ c.map_url }}" rel="noopener" target="_blank">Open in maps<span class="visually-hidden"> (opens in a new tab)</span> <span aria-hidden="true">↗</span></a>{% endif %}</div></li>
+          <li>{{ icon('clock') }}<div><span class="label">Office hours</span>{{ c.hours }}</div></li>
+        </ul>
+      </div>
+      {%- if page.tips['items'] %}
+      <div class="contact-card contact-card-tint">
+        <h2 class="aside-title">{{ page.tips.title }}</h2>
+        <ul class="check-list">{% for t in page.tips['items'] %}<li>{{ t }}</li>{% endfor %}</ul>
+      </div>
+      {%- endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

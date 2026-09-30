@@ -1,0 +1,71 @@
+[
+  {
+    "title": "From pilot to production: what it takes to make AI work in the real world",
+    "slug": "ai-from-pilot-to-production",
+    "published": true,
+    "order": 0,
+    "date": "2026-09-15",
+    "author": "ASSERT Engineering",
+    "category": "Artificial Intelligence",
+    "excerpt": "Most AI pilots never reach daily use. Here are the engineering and organisational practices that help an AI system make the leap from promising demo to dependable tool.",
+    "image": "ml-specialists",
+    "body": "A successful AI demo is exciting. A system that people rely on every day is valuable. The distance between the two is where most AI initiatives stall — not because the model is wrong, but because everything around it was not designed for production.\n\n## Start with the decision, not the model\n\nBefore choosing a model, be precise about the decision or task it will support. Who uses the output? What happens when it is wrong? What would “good enough” look like, measured in a way the business understands? Clear answers to these questions shape everything else — from the data you need to how results are presented.\n\n## Treat evaluation as a product feature\n\nAI systems are probabilistic, so their quality has to be measured continuously. We agree on evaluation metrics with stakeholders at the start, build a test set from real data, and track the same metrics after go-live. When quality drifts — because data, users or conditions change — the team knows early.\n\n## Design for people in the loop\n\nFor high-impact decisions, AI should inform people rather than replace them. Interfaces that show *why* a result was produced, make it easy to correct mistakes and capture that feedback turn users into partners who improve the system over time.\n\n## Engineer the whole system\n\nA production AI system is mostly ordinary software: data pipelines, APIs, authentication, logging, monitoring, backups and deployment automation. Skipping these steps is the fastest way to a pilot that nobody can operate. Building them in from the beginning costs little and saves a great deal.\n\n## Mind security and data protection\n\nSensitive data often cannot leave an organisation’s environment. Private deployments using open or self-hosted models, strict access control and data minimisation make it possible to use AI while meeting GDPR and sector-specific obligations.\n\n## The takeaway\n\nAI delivers value when it is treated as part of a well-engineered system with clear goals, measured quality and thoughtful human oversight. That is the approach we bring to every AI project at ASSERT.",
+    "tags": [
+      "AI",
+      "MLOps",
+      "Strategy"
+    ],
+    "seo": {
+      "title": "",
+      "description": "",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "Edge or cloud? Choosing where computer vision should run",
+    "slug": "edge-or-cloud-computer-vision",
+    "published": true,
+    "order": 0,
+    "date": "2026-08-27",
+    "author": "ASSERT Engineering",
+    "category": "Computer Vision",
+    "excerpt": "Where you process video affects latency, cost, privacy and resilience. A practical guide to deciding between edge, on-premise and cloud inference.",
+    "image": "circuit-board-red",
+    "body": "Every computer-vision project eventually faces the same architectural question: where should the video be analysed? Close to the camera, in a server room on-site, or in the cloud? The right answer depends on four factors.\n\n## 1. Latency\n\nIf a system must react in milliseconds — stopping a conveyor, raising a perimeter alarm, adjusting traffic signals — sending video to a distant data centre and back adds delay and risk. **Edge inference**, on compact hardware next to the camera, keeps response times short and predictable.\n\n## 2. Bandwidth and cost\n\nA single high-definition stream can consume several megabits per second. Multiply that by dozens or hundreds of cameras and the network and cloud bills grow quickly. Processing at the edge and sending only events and metadata can reduce data volumes by orders of magnitude.\n\n## 3. Privacy\n\nVideo often contains people. Processing it locally, storing only anonymous counts or events, and blurring faces and number plates where footage must be kept, significantly reduces privacy risk and simplifies GDPR compliance.\n\n## 4. Resilience and scale\n\nEdge devices keep working when the connection drops, but they are harder to update and monitor at scale. Cloud platforms make it easy to retrain models, roll out updates and aggregate results across sites.\n\n## The hybrid answer\n\nIn practice, most robust systems are **hybrid**: real-time detection runs at the edge, while a central platform — on-premise or in the cloud — handles fleet management, dashboards, model training and long-term analytics. Designing that split deliberately, from the start, is one of the most important decisions in a computer-vision project.\n\nAt ASSERT we help clients make this choice based on their operational requirements, not on a default architecture.",
+    "tags": [
+      "Computer Vision",
+      "Edge AI",
+      "Architecture"
+    ],
+    "seo": {
+      "title": "",
+      "description": "",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "Writing better technical specifications for public-sector IT projects",
+    "slug": "better-technical-specifications-public-sector",
+    "published": true,
+    "order": 0,
+    "date": "2026-07-30",
+    "author": "ASSERT Consulting",
+    "category": "IT Consulting",
+    "excerpt": "A tender is only as good as its specification. Practical advice for public bodies preparing requirements for complex IT and AI systems.",
+    "image": "consulting-workshop",
+    "body": "Public-sector IT projects are shaped long before a contractor is selected. The technical specification in the tender determines what will be built, how it will be evaluated and, often, whether the project succeeds. Here are practices that consistently lead to better outcomes.\n\n## Describe outcomes, not products\n\nSpecifications that name a particular technology or copy a vendor’s feature list limit competition and can lock the organisation in. Describe what the system must achieve — the users, the processes, the volumes and the service levels — and let bidders propose how.\n\n## Make requirements testable\n\n“User-friendly” and “fast” cannot be verified. “Users complete an application in under ten minutes” and “95% of searches return results in under two seconds” can. Every requirement should be something that can be checked during acceptance.\n\n## Include accessibility and security from the start\n\nDigital public services must meet accessibility standards such as EN 301 549 / WCAG and relevant cybersecurity obligations. Stating these explicitly — with how they will be tested — avoids costly fixes later.\n\n## Plan for interoperability and data ownership\n\nRequire open, documented APIs and standard data formats, and be explicit about data ownership and exit arrangements. This protects the organisation’s ability to integrate, extend or change suppliers in the future.\n\n## Be realistic about AI\n\nAI can add real value to public services, but requirements should focus on measurable performance on representative data, human oversight and transparency, rather than on specific algorithms.\n\n## Engage the market early\n\nWhere rules allow, preliminary market consultation helps confirm that requirements are achievable and fairly priced.\n\nASSERT supports public bodies with requirements analysis, technical specifications and independent technology assessment. [Contact us](/contact/) to discuss your next programme.",
+    "tags": [
+      "Public Sector",
+      "Procurement",
+      "Consulting"
+    ],
+    "seo": {
+      "title": "",
+      "description": "",
+      "og_image": "",
+      "noindex": false
+    }
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "seo": {
+    "title": "Contact ASSERT | AI & Software Company in Athens, Greece",
+    "description": "Contact ASSERT in Nea Smyrni, Athens to discuss AI, computer vision, IoT, custom software, defence technology or IT consulting projects.",
+    "og_image": "",
+    "noindex": false
+  },
+  "hero": {
+    "eyebrow": "Contact",
+    "title": "Bring us the challenge.",
+    "text": "Whether you are planning an AI initiative, a computer-vision or IoT deployment, a new software product or a complex IT programme, start with the problem you need to solve.",
+    "image": "modern-office-corridor"
+  },
+  "form": {
+    "title": "Send us a message",
+    "intro": "Tell us what you are trying to achieve. We aim to reply within one business day.",
+    "topics": [
+      "General enquiry",
+      "Artificial Intelligence",
+      "Computer Vision",
+      "Internet of Things & Edge",
+      "Defence & Security",
+      "Custom Software & Product Development",
+      "IT Consulting",
+      "Products (CoffeeAnalytics, LawFlow)",
+      "Careers & partnerships"
+    ],
+    "success": "A member of our team will get back to you shortly. If your request is urgent, please call us.",
+    "privacy_note": "We only use your details to respond to your enquiry. We never sell or share them for marketing."
+  },
+  "tips": {
+    "title": "A useful first message includes",
+    "items": [
+      "The business or operational problem",
+      "Who will use the solution",
+      "Existing systems and data sources",
+      "Timeline and any budget range",
+      "Security or deployment constraints"
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" class="no-js" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#07080B">
+  <meta name="color-scheme" content="dark light">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <meta name="cms-base" content="{{ url_for('admin.dashboard') }}">
+  <title>{% block title %}Admin{% endblock %} · {{ site.brand.name }} CMS</title>
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon-32.png') }}" type="image/png">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}?v={{ asset_v }}">
+  <script src="{{ url_for('static', filename='js/cms-theme.js') }}?v={{ asset_v }}"></script>
+  <script src="{{ url_for('static', filename='js/admin.js') }}?v={{ asset_v }}" defer></script>
+</head>
+<body class="admin{% block body_class %}{% endblock %}">
+  <a class="skip-link" href="#content">Skip to content</a>
+  {%- if session.user %}
+  <div class="shell">
+    <aside class="sidebar" aria-label="Admin">
+      <a class="sb-brand" href="{{ url_for('admin.dashboard') }}">
+        <img class="logo-for-dark" src="{{ url_for('static', filename='img/logo.png') }}" alt="{{ site.brand.name }}" width="130" height="24">
+        <img class="logo-for-light" src="{{ url_for('static', filename='img/logo-dark.png') }}" alt="{{ site.brand.name }}" width="130" height="24">
+        <span>CMS</span>
+      </a>
+      <nav aria-label="Admin sections">
+        {%- set ep = request.endpoint or '' %}
+        <ul class="sb-nav">
+          <li><a href="{{ url_for('admin.dashboard') }}"{% if ep == 'admin.dashboard' %} aria-current="page"{% endif %}>Dashboard</a></li>
+          <li><a href="{{ url_for('admin.pages') }}"{% if ep in ('admin.pages', 'admin.edit_page') %} aria-current="page"{% endif %}>Pages</a></li>
+          {%- for key, spec in COLLECTIONS.items() %}
+          <li><a href="{{ url_for('admin.collection', collection=key) }}"{% if request.view_args and request.view_args.get('collection') == key %} aria-current="page"{% endif %}>{{ spec.label }}</a></li>
+          {%- endfor %}
+          <li><a href="{{ url_for('admin.media') }}"{% if ep.startswith('admin.media') %} aria-current="page"{% endif %}>Media library</a></li>
+          <li><a href="{{ url_for('admin.messages') }}"{% if ep in ('admin.messages', 'admin.message') %} aria-current="page"{% endif %}>Messages{% if unread %} <span class="badge">{{ unread }}<span class="visually-hidden"> unread</span></span>{% endif %}</a></li>
+          <li><a href="{{ url_for('admin.settings') }}"{% if ep == 'admin.settings' %} aria-current="page"{% endif %}>Site settings</a></li>
+        </ul>
+      </nav>
+      <div class="sb-foot">
+        <button class="theme-toggle" type="button" aria-pressed="false" data-theme-toggle>
+          <svg class="icon-moon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <span data-theme-label>Light theme</span>
+        </button>
+        <a href="/" target="_blank" rel="noopener">View website <span class="visually-hidden">(opens in a new tab)</span>↗</a>
+        <a href="{{ url_for('admin.account') }}"{% if ep == 'admin.account' %} aria-current="page"{% endif %}>{{ session.user.name }} · Account</a>
+        <form method="post" action="{{ url_for('admin.logout') }}">
+          <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+          <button type="submit" class="linklike">Sign out</button>
+        </form>
+      </div>
+    </aside>
+    <main id="content" class="content" tabindex="-1">
+      {%- with messages = get_flashed_messages(with_categories=true) %}
+      {%- if messages %}
+      <div class="flashes" role="status">
+        {%- for cat, msg in messages %}<p class="flash flash-{{ cat }}">{{ msg }}</p>{% endfor %}
+      </div>
+      {%- endif %}
+      {%- endwith %}
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+  {%- else %}
+  <main id="content" class="auth" tabindex="-1">
+    <button class="theme-toggle auth-toggle" type="button" aria-pressed="false" data-theme-toggle>
+          <svg class="icon-moon" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          <svg class="icon-sun" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <span data-theme-label>Light theme</span>
+        </button>
+    {% block auth %}{% endblock %}
+  </main>
+  {%- endif %}
+</body>
+</html>

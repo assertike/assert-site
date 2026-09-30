@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block og_image %}{{ page.hero.image }}{% endblock %}
+{% block content %}
+{{ m.page_hero(page.hero, [('Home', '/'), ('Company', '/company/')], page.hero.image) }}
+
+<section class="section" aria-labelledby="story-title">
+  <div class="wrap split">
+    <div class="split-copy">
+      {{ m.eyebrow(page.story.eyebrow) }}
+      <h2 class="section-title" id="story-title">{{ page.story.title }}</h2>
+      <div class="prose">{{ md(page.story.body, shift=1) }}</div>
+    </div>
+    <figure class="split-media viewfinder">
+      {{ img(page.story.image, sizes='(min-width: 960px) 45vw, 100vw', cls='cover') }}
+    </figure>
+  </div>
+  {%- if page.facts %}
+  <div class="wrap">
+    <dl class="fact-row">
+      {%- for f in page.facts %}<div class="fact"><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd></div>{% endfor %}
+    </dl>
+  </div>
+  {%- endif %}
+</section>
+
+<section class="section section-alt" aria-labelledby="mission-title">
+  <div class="grid-lines" aria-hidden="true"></div>
+  <div class="wrap mission">
+    <h2 class="visually-hidden" id="mission-title">Mission and vision</h2>
+    {%- if page.mission.motto %}<p class="motto">“{{ page.mission.motto }}”</p>{% endif %}
+    <div class="mission-grid">
+      <div class="mission-card"><h3 class="eyebrow">Mission</h3><p>{{ page.mission.mission }}</p></div>
+      <div class="mission-card"><h3 class="eyebrow">Vision</h3><p>{{ page.mission.vision }}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="process-title">
+  <div class="wrap">
+    {{ m.section_head(page.process, 'process-title') }}
+    <ol class="process" role="list">
+      {%- for s in page.process.steps %}
+      <li class="process-step reveal">
+        <span class="process-num" aria-hidden="true">{{ '%02d' % loop.index }}</span>
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.text }}</p>
+      </li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section section-tint" aria-labelledby="principles-title">
+  <div class="wrap">
+    {{ m.section_head(page.principles, 'principles-title') }}
+    <ul class="feature-grid" role="list">
+      {%- for p in page.principles['items'] %}
+      <li class="feature">{{ icon(p.icon or 'spark') }}<h3>{{ p.title }}</h3><p>{{ p.text }}</p></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{{ m.cta_band(page.cta) }}
+{% endblock %}

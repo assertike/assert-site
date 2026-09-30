@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block content %}
+{{ m.page_hero(page.hero, [('Home', '/'), ('Insights', '/insights/')]) }}
+
+<section class="section" aria-labelledby="posts-title">
+  <div class="wrap">
+    <h2 class="visually-hidden" id="posts-title">{% if category %}Posts in {{ category }}{% else %}Latest posts{% endif %}</h2>
+    {%- if categories|length > 1 and not static_export %}
+    <nav class="filters" aria-label="Filter posts by category">
+      <ul role="list">
+        <li><a href="/insights/"{% if not category %} aria-current="page"{% endif %}>All</a></li>
+        {%- for c in categories %}<li><a href="/insights/?category={{ c | urlencode }}"{% if c == category %} aria-current="page"{% endif %}>{{ c }}</a></li>{% endfor %}
+      </ul>
+    </nav>
+    {%- endif %}
+    {%- if items %}
+    <ul class="post-grid" role="list">{% for p in items %}{{ m.post_card(p) }}{% endfor %}</ul>
+    {%- else %}
+    <div class="empty-state">{{ icon('chart', 'icon icon-xl') }}<h3>{{ page.empty.title }}</h3><p>{{ page.empty.text }}</p></div>
+    {%- endif %}
+  </div>
+</section>
+{% endblock %}

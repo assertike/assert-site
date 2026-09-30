@@ -1,0 +1,114 @@
+{
+  "seo": {
+    "title": "About ASSERT | AI & Embedded Systems Experts in Athens",
+    "description": "ASSERT is an Athens-based technology company founded by AI and embedded-systems experts, building intelligent systems that sense, learn and act.",
+    "og_image": "",
+    "noindex": false
+  },
+  "hero": {
+    "eyebrow": "Company",
+    "title": "We build intelligent systems that sense, learn and act with purpose.",
+    "text": "ASSERT delivers AI, IoT and computer-vision solutions that turn real-world data into real-time decisions — from edge computing to advanced machine-learning models.",
+    "image": "team-night-meeting"
+  },
+  "story": {
+    "eyebrow": "Our story",
+    "title": "Physical + digital, by design.",
+    "body": "ASSERT was founded by AI and embedded-systems experts on a simple belief: **the future is physical and digital at the same time.** Our name reflects our vision — to make sense of the world assertively, with clarity and intelligence.\n\nWe are a newly established company (2025) built on more than 20 years of combined experience from our founders, and backed by a growing network of talented professionals and partners.\n\nWhether we are monitoring infrastructure, enabling autonomous platforms or modernising a public-sector workflow, our goal is the same: help organisations move from data to insight — faster, smarter and at scale. We believe technology should not only solve problems; it should anticipate them.",
+    "image": "ml-specialists"
+  },
+  "facts": [
+    {
+      "value": "2025",
+      "label": "Founded"
+    },
+    {
+      "value": "20+",
+      "label": "Years of combined experience"
+    },
+    {
+      "value": "6",
+      "label": "Core capabilities"
+    },
+    {
+      "value": "GR · EU",
+      "label": "Markets served"
+    }
+  ],
+  "mission": {
+    "mission": "To bridge the gap between sensing and reasoning. ASSERT develops intelligent systems that see, understand and act — so people can focus on outcomes, not data noise.",
+    "vision": "Physical environments — cities, factories, infrastructure and critical operations — that are understood in real time, where technology helps people make better decisions, faster.",
+    "motto": "Empowering the physical world with intelligence — that’s our motto."
+  },
+  "process": {
+    "eyebrow": "How we work",
+    "title": "From first requirement to long-term evolution.",
+    "text": "A delivery approach designed to reduce risk and produce systems that keep working after launch.",
+    "steps": [
+      {
+        "title": "Understand",
+        "text": "We define objectives, users, existing systems, constraints and measurable outcomes before choosing technology."
+      },
+      {
+        "title": "Design",
+        "text": "We turn requirements into a solution architecture, delivery plan and integration strategy that adapts to complex environments."
+      },
+      {
+        "title": "Build",
+        "text": "We engineer iteratively, with maintainability, testing, security and operability in mind from day one."
+      },
+      {
+        "title": "Integrate & deploy",
+        "text": "We connect the solution to the systems and data around it, on-premise, in the cloud or across hybrid and edge platforms."
+      },
+      {
+        "title": "Evolve",
+        "text": "We keep improving products and platforms as requirements, users and technologies change."
+      }
+    ]
+  },
+  "principles": {
+    "eyebrow": "Principles",
+    "title": "What defines our approach",
+    "text": "",
+    "items": [
+      {
+        "title": "Engineering over hype",
+        "text": "We choose technology for the problem, not for the headline — and we are honest about trade-offs.",
+        "icon": "code"
+      },
+      {
+        "title": "AI where it creates value",
+        "text": "Machine learning is applied where it measurably improves accuracy, speed or cost.",
+        "icon": "ai"
+      },
+      {
+        "title": "Architecture for maintainability",
+        "text": "Clear structure, documentation and tests, so systems can be owned and extended for years.",
+        "icon": "layers"
+      },
+      {
+        "title": "Interoperability by design",
+        "text": "Open standards and well-defined APIs that connect with the systems you already rely on.",
+        "icon": "iot"
+      },
+      {
+        "title": "Security & privacy first",
+        "text": "Secure-by-default engineering and privacy-preserving processing, especially for video and sensor data.",
+        "icon": "shield"
+      },
+      {
+        "title": "Long-term partnership",
+        "text": "We measure success by the outcomes our clients achieve long after the first release.",
+        "icon": "target"
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Build with ASSERT",
+    "title": "Have a technology challenge worth solving?",
+    "text": "Bring us the problem. We’ll help shape the requirements, choose the architecture and build the solution.",
+    "button_label": "Start a conversation",
+    "button_url": "/contact/"
+  }
+}

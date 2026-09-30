@@ -1,0 +1,23 @@
+{% extends "admin/base.html" %}
+{% block title %}Pages{% endblock %}
+{% block content %}
+<header class="page-head"><div><p class="kicker">Content</p><h1>Pages</h1></div></header>
+<div class="panel">
+  <table class="table">
+    <caption class="visually-hidden">Site pages</caption>
+    <thead><tr><th scope="col">Page</th><th scope="col">URL</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr></thead>
+    <tbody>
+      {%- for key, spec in PAGES.items() %}
+      <tr>
+        <th scope="row"><a href="{{ url_for('admin.edit_page', name=key) }}">{{ spec.label }}</a></th>
+        <td><code>{{ spec.path }}</code></td>
+        <td class="actions-cell">
+          <a class="btn btn-sm" href="{{ url_for('admin.edit_page', name=key) }}">Edit<span class="visually-hidden"> {{ spec.label }}</span></a>
+          <a class="btn btn-sm btn-ghost" href="{{ spec.path }}" target="_blank" rel="noopener">View<span class="visually-hidden"> {{ spec.label }} (opens in a new tab)</span></a>
+        </td>
+      </tr>
+      {%- endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

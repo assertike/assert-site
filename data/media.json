@@ -1,0 +1,379 @@
+[
+  {
+    "id": "smart-city-skyline",
+    "alt": "City skyline at sunset with high-rise towers and dense streets",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1067,
+    "variants": {
+      "480": "uploads/smart-city-skyline-480.webp",
+      "960": "uploads/smart-city-skyline-960.webp",
+      "1600": "uploads/smart-city-skyline-1600.webp"
+    },
+    "og": "uploads/smart-city-skyline-og.jpg",
+    "created": "2026-09-30T11:43:41"
+  },
+  {
+    "id": "circuit-board-glow",
+    "alt": "Close-up of an illuminated electronic circuit board",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1068,
+    "variants": {
+      "480": "uploads/circuit-board-glow-480.webp",
+      "960": "uploads/circuit-board-glow-960.webp",
+      "1600": "uploads/circuit-board-glow-1600.webp"
+    },
+    "og": "uploads/circuit-board-glow-og.jpg",
+    "created": "2026-09-30T11:43:42"
+  },
+  {
+    "id": "cockpit-control-panel",
+    "alt": "Hand operating backlit controls on an aircraft cockpit panel",
+    "credit": "ASSERT",
+    "width": 844,
+    "height": 1500,
+    "variants": {
+      "480": "uploads/cockpit-control-panel-480.webp",
+      "844": "uploads/cockpit-control-panel-844.webp"
+    },
+    "og": "uploads/cockpit-control-panel-og.jpg",
+    "created": "2026-09-30T11:43:42"
+  },
+  {
+    "id": "source-code-screen",
+    "alt": "Colourful source code on a monitor",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1067,
+    "variants": {
+      "480": "uploads/source-code-screen-480.webp",
+      "960": "uploads/source-code-screen-960.webp",
+      "1600": "uploads/source-code-screen-1600.webp"
+    },
+    "og": "uploads/source-code-screen-og.jpg",
+    "created": "2026-09-30T11:43:43"
+  },
+  {
+    "id": "consulting-workshop",
+    "alt": "Consultants reviewing charts next to a model of buildings and wind turbines",
+    "credit": "ASSERT",
+    "width": 1500,
+    "height": 999,
+    "variants": {
+      "480": "uploads/consulting-workshop-480.webp",
+      "960": "uploads/consulting-workshop-960.webp",
+      "1500": "uploads/consulting-workshop-1500.webp"
+    },
+    "og": "uploads/consulting-workshop-og.jpg",
+    "created": "2026-09-30T11:43:43"
+  },
+  {
+    "id": "surveillance-drone",
+    "alt": "A white quadcopter drone flying above a forest",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1067,
+    "variants": {
+      "480": "uploads/surveillance-drone-480.webp",
+      "960": "uploads/surveillance-drone-960.webp",
+      "1600": "uploads/surveillance-drone-1600.webp"
+    },
+    "og": "uploads/surveillance-drone-og.jpg",
+    "created": "2026-09-30T11:43:43"
+  },
+  {
+    "id": "robotics-lab-engineer",
+    "alt": "Engineer working on a laptop in a robotics and automation lab",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1067,
+    "variants": {
+      "480": "uploads/robotics-lab-engineer-480.webp",
+      "960": "uploads/robotics-lab-engineer-960.webp",
+      "1600": "uploads/robotics-lab-engineer-1600.webp"
+    },
+    "og": "uploads/robotics-lab-engineer-og.jpg",
+    "created": "2026-09-30T11:43:44"
+  },
+  {
+    "id": "glass-office-towers",
+    "alt": "Looking up at glass office towers against the sky",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1067,
+    "variants": {
+      "480": "uploads/glass-office-towers-480.webp",
+      "960": "uploads/glass-office-towers-960.webp",
+      "1600": "uploads/glass-office-towers-1600.webp"
+    },
+    "og": "uploads/glass-office-towers-og.jpg",
+    "created": "2026-09-30T11:43:44"
+  },
+  {
+    "id": "server-racks",
+    "alt": "Rows of network cables and servers in a data centre",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 898,
+    "variants": {
+      "480": "uploads/server-racks-480.webp",
+      "960": "uploads/server-racks-960.webp",
+      "1600": "uploads/server-racks-1600.webp"
+    },
+    "og": "uploads/server-racks-og.jpg",
+    "created": "2026-09-30T11:43:44"
+  },
+  {
+    "id": "open-plan-office",
+    "alt": "Large open-plan office with people working at desks",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1067,
+    "variants": {
+      "480": "uploads/open-plan-office-480.webp",
+      "960": "uploads/open-plan-office-960.webp",
+      "1600": "uploads/open-plan-office-1600.webp"
+    },
+    "og": "uploads/open-plan-office-og.jpg",
+    "created": "2026-09-30T11:43:45"
+  },
+  {
+    "id": "coffee-cups-table",
+    "alt": "Cups of latte art coffee on a café table",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 2400,
+    "variants": {
+      "480": "uploads/coffee-cups-table-480.webp",
+      "960": "uploads/coffee-cups-table-960.webp",
+      "1600": "uploads/coffee-cups-table-1600.webp"
+    },
+    "og": "uploads/coffee-cups-table-og.jpg",
+    "created": "2026-09-30T11:43:45"
+  },
+  {
+    "id": "coffee-cheers",
+    "alt": "Three people toasting with cups of coffee",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1067,
+    "variants": {
+      "480": "uploads/coffee-cheers-480.webp",
+      "960": "uploads/coffee-cheers-960.webp",
+      "1600": "uploads/coffee-cheers-1600.webp"
+    },
+    "og": "uploads/coffee-cheers-og.jpg",
+    "created": "2026-09-30T11:43:45"
+  },
+  {
+    "id": "analytics-dashboard",
+    "alt": "Analytics dashboard with charts on a laptop screen",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1067,
+    "variants": {
+      "480": "uploads/analytics-dashboard-480.webp",
+      "960": "uploads/analytics-dashboard-960.webp",
+      "1600": "uploads/analytics-dashboard-1600.webp"
+    },
+    "og": "uploads/analytics-dashboard-og.jpg",
+    "created": "2026-09-30T11:43:46"
+  },
+  {
+    "id": "earth-network-night",
+    "alt": "Earth from space at night with glowing city lights",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1065,
+    "variants": {
+      "480": "uploads/earth-network-night-480.webp",
+      "960": "uploads/earth-network-night-960.webp",
+      "1600": "uploads/earth-network-night-1600.webp"
+    },
+    "og": "uploads/earth-network-night-og.jpg",
+    "created": "2026-09-30T11:43:46"
+  },
+  {
+    "id": "engineering-sketches",
+    "alt": "Engineer sketching technical drawings at a workbench",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1067,
+    "variants": {
+      "480": "uploads/engineering-sketches-480.webp",
+      "960": "uploads/engineering-sketches-960.webp",
+      "1600": "uploads/engineering-sketches-1600.webp"
+    },
+    "og": "uploads/engineering-sketches-og.jpg",
+    "created": "2026-09-30T11:43:46"
+  },
+  {
+    "id": "modern-office-corridor",
+    "alt": "Bright, modern office corridor",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1068,
+    "variants": {
+      "480": "uploads/modern-office-corridor-480.webp",
+      "960": "uploads/modern-office-corridor-960.webp",
+      "1600": "uploads/modern-office-corridor-1600.webp"
+    },
+    "og": "uploads/modern-office-corridor-og.jpg",
+    "created": "2026-09-30T11:43:47"
+  },
+  {
+    "id": "team-night-meeting",
+    "alt": "Team of four collaborating around a laptop in a dark meeting room",
+    "credit": "ASSERT",
+    "width": 1600,
+    "height": 889,
+    "variants": {
+      "480": "uploads/team-night-meeting-480.webp",
+      "960": "uploads/team-night-meeting-960.webp",
+      "1600": "uploads/team-night-meeting-1600.webp"
+    },
+    "og": "uploads/team-night-meeting-og.jpg",
+    "created": "2026-09-30T11:43:47"
+  },
+  {
+    "id": "ml-specialists",
+    "alt": "Two machine-learning engineers discussing a data visualisation on screen",
+    "credit": "ASSERT",
+    "width": 1500,
+    "height": 1000,
+    "variants": {
+      "480": "uploads/ml-specialists-480.webp",
+      "960": "uploads/ml-specialists-960.webp",
+      "1500": "uploads/ml-specialists-1500.webp"
+    },
+    "og": "uploads/ml-specialists-og.jpg",
+    "created": "2026-09-30T11:43:47"
+  },
+  {
+    "id": "circuit-board-red",
+    "alt": "Circuit board with a processor highlighted in red light",
+    "credit": "ASSERT",
+    "width": 1600,
+    "height": 835,
+    "variants": {
+      "480": "uploads/circuit-board-red-480.webp",
+      "960": "uploads/circuit-board-red-960.webp",
+      "1600": "uploads/circuit-board-red-1600.webp"
+    },
+    "og": "uploads/circuit-board-red-og.jpg",
+    "created": "2026-09-30T11:43:47"
+  },
+  {
+    "id": "handshake-partnership",
+    "alt": "Two business people shaking hands",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1068,
+    "variants": {
+      "480": "uploads/handshake-partnership-480.webp",
+      "960": "uploads/handshake-partnership-960.webp",
+      "1600": "uploads/handshake-partnership-1600.webp"
+    },
+    "og": "uploads/handshake-partnership-og.jpg",
+    "created": "2026-09-30T11:43:48"
+  },
+  {
+    "id": "assert-social-card",
+    "alt": "ASSERT logo with the words AI, Computer Vision, IoT and Software",
+    "credit": "ASSERT",
+    "width": 1200,
+    "height": 630,
+    "variants": {
+      "480": "uploads/assert-social-card-480.webp",
+      "960": "uploads/assert-social-card-960.webp",
+      "1200": "uploads/assert-social-card-1200.webp"
+    },
+    "og": "uploads/assert-social-card-og.jpg",
+    "created": "2026-09-30T11:43:48"
+  },
+  {
+    "id": "ai-3d-render",
+    "alt": "Glowing blue 3D letters spelling AI on a circuit-like surface",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 900,
+    "variants": {
+      "480": "uploads/ai-3d-render-480.webp",
+      "960": "uploads/ai-3d-render-960.webp",
+      "1600": "uploads/ai-3d-render-1600.webp"
+    },
+    "og": "uploads/ai-3d-render-og.jpg",
+    "created": "2026-09-30T13:12:59"
+  },
+  {
+    "id": "consulting-strategy-workshop",
+    "alt": "Consultant presenting at a wall of sticky notes to a team working on laptops",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1067,
+    "variants": {
+      "480": "uploads/consulting-strategy-workshop-480.webp",
+      "960": "uploads/consulting-strategy-workshop-960.webp",
+      "1600": "uploads/consulting-strategy-workshop-1600.webp"
+    },
+    "og": "uploads/consulting-strategy-workshop-og.jpg",
+    "created": "2026-09-30T13:12:59"
+  },
+  {
+    "id": "prague-city-aerial",
+    "alt": "Aerial view of Prague with the Charles Bridge over the Vltava river",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1067,
+    "variants": {
+      "480": "uploads/prague-city-aerial-480.webp",
+      "960": "uploads/prague-city-aerial-960.webp",
+      "1600": "uploads/prague-city-aerial-1600.webp"
+    },
+    "og": "uploads/prague-city-aerial-og.jpg",
+    "created": "2026-09-30T13:13:00"
+  },
+  {
+    "id": "berlaymont-european-commission",
+    "alt": "Berlaymont building of the European Commission in Brussels with EU flags",
+    "credit": "almathias — CC0 (Wikimedia Commons)",
+    "width": 1600,
+    "height": 1200,
+    "variants": {
+      "480": "uploads/berlaymont-european-commission-480.webp",
+      "960": "uploads/berlaymont-european-commission-960.webp",
+      "1600": "uploads/berlaymont-european-commission-1600.webp"
+    },
+    "og": "uploads/berlaymont-european-commission-og.jpg",
+    "created": "2026-09-30T13:13:01"
+  },
+  {
+    "id": "legal-document-signing",
+    "alt": "Close-up of a hand signing a document with a pen",
+    "credit": "Unsplash",
+    "width": 1600,
+    "height": 1068,
+    "variants": {
+      "480": "uploads/legal-document-signing-480.webp",
+      "960": "uploads/legal-document-signing-960.webp",
+      "1600": "uploads/legal-document-signing-1600.webp"
+    },
+    "og": "uploads/legal-document-signing-og.jpg",
+    "created": "2026-09-30T13:13:01"
+  },
+  {
+    "id": "saildrone-ocean-research",
+    "alt": "Orange Saildrone, an autonomous wind- and solar-powered ocean research vessel, at sea with mountains behind",
+    "credit": "NOAA — public domain (Wikimedia Commons)",
+    "width": 1600,
+    "height": 1200,
+    "variants": {
+      "480": "uploads/saildrone-ocean-research-480.webp",
+      "960": "uploads/saildrone-ocean-research-960.webp",
+      "1600": "uploads/saildrone-ocean-research-1600.webp"
+    },
+    "og": "uploads/saildrone-ocean-research-og.jpg",
+    "created": "2026-09-30T13:30:20"
+  }
+]

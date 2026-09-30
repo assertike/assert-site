@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}{{ item.title }} Technology Solutions{% endblock %}
+{% block description %}{{ item.summary }}{% endblock %}
+{% block og_image %}{{ item.image }}{% endblock %}
+{% block content %}
+{{ m.page_hero({'eyebrow': 'Industry', 'title': item.title, 'text': item.summary},
+               [('Home', '/'), ('Industries', '/industries/'), (item.title, request.path)], item.image) }}
+
+<div class="section">
+  <div class="wrap detail">
+    <div class="detail-main">
+      {%- if item.body %}<div class="prose prose-lg">{{ md(item.body) }}</div>{% endif %}
+      {%- if item.use_cases %}
+      <section class="detail-block" aria-labelledby="uc-title">
+        <h2 id="uc-title" class="block-title">Use cases</h2>
+        <ul class="feature-grid feature-grid-2" role="list">
+          {%- for u in item.use_cases %}<li class="feature"><h3>{{ u.title }}</h3><p>{{ u.text }}</p></li>{% endfor %}
+        </ul>
+      </section>
+      {%- endif %}
+    </div>
+    <aside class="detail-aside" aria-label="Related services">
+      <div class="aside-card">
+        {%- if related %}
+        <h2 class="aside-title">Relevant services</h2>
+        <ul class="aside-links" role="list">
+          {%- for s in related %}<li><a href="/services/{{ s.slug }}/">{{ icon(s.icon or 'spark') }}<span>{{ s.title }}</span></a></li>{% endfor %}
+        </ul>
+        {%- endif %}
+        <h2 class="aside-title">Talk to a specialist</h2>
+        <p>Discuss your {{ item.title | lower }} challenge with our team.</p>
+        <a class="btn btn-primary btn-block" href="/contact/?topic={{ item.title | urlencode }}">Get in touch</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+{%- if others %}
+<section class="section section-tint" aria-labelledby="more-title">
+  <div class="wrap">
+    <div class="section-head"><div><p class="eyebrow">Sectors</p><h2 class="section-title" id="more-title">Other industries</h2></div></div>
+    <ul class="tile-grid tile-grid-3" role="list">{% for it in others[:3] %}{{ m.tile(it, '/industries/') }}{% endfor %}</ul>
+  </div>
+</section>
+{%- endif %}
+{% endblock %}

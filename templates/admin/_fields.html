@@ -1,0 +1,116 @@
+{#- Recursive form renderer driven by cms/schemas.py.
+    Each field wrapper carries data-key / data-kind; admin.js serialises the
+    tree back into JSON on submit. -#}
+
+{% macro help(f, id) -%}
+{%- if f.help or f.max %}<p class="hint" id="{{ id }}-hint">{{ f.help }}{% if f.max %} <span class="counter" data-counter-for="{{ id }}" aria-hidden="true"></span>{% endif %}</p>{% endif -%}
+{%- endmacro %}
+
+{% macro described(f, id) -%}
+{%- if f.help or f.max %} aria-describedby="{{ id }}-hint"{% endif -%}
+{%- endmacro %}
+
+{% macro field(f, value, uid) -%}
+{%- set id = 'f-' ~ uid ~ '-' ~ f.key -%}
+{%- set t = f.type -%}
+{%- if t == 'group' %}
+<details class="fg" data-key="{{ f.key }}" data-kind="group" data-container{% if not f.collapsed %} open{% endif %}>
+  <summary><span class="fg-title">{{ f.label }}</span></summary>
+  <div class="fg-body">
+    {%- for sub in f.fields %}{{ field(sub, (value or {}).get(sub.key), uid ~ '-' ~ f.key) }}{% endfor %}
+  </div>
+</details>
+{%- elif t == 'repeater' %}
+<div class="rep" data-key="{{ f.key }}" data-kind="repeater" role="group" aria-labelledby="{{ id }}-label">
+  <div class="rep-head">
+    <span class="rep-label" id="{{ id }}-label">{{ f.label }}</span>
+    <span class="muted small" data-count></span>
+  </div>
+  {%- if f.help %}<p class="hint">{{ f.help }}</p>{% endif %}
+  <ol class="rep-items" data-items>
+    {%- for v in (value or []) %}{{ rep_item(f, v, uid ~ '-' ~ f.key ~ '-' ~ loop.index) }}{% endfor %}
+  </ol>
+  <template data-template>{{ rep_item(f, {}, uid ~ '-' ~ f.key ~ '-new') }}</template>
+  <button type="button" class="btn btn-sm btn-add" data-add>+ Add {{ f.label | lower }} item</button>
+</div>
+{%- elif t == 'bool' %}
+<div class="fi fi-check" data-key="{{ f.key }}" data-kind="bool">
+  <input type="checkbox" id="{{ id }}" data-input{% if value %} checked{% endif %}{{ described(f, id) }}>
+  <label for="{{ id }}">{{ f.label }}</label>
+  {{ help(f, id) }}
+</div>
+{%- else %}
+<div class="fi fi-{{ t }}" data-key="{{ f.key }}" data-kind="{{ t }}">
+  <label for="{{ id }}">{{ f.label }}{% if f.required %} <span class="req" aria-hidden="true">*</span>{% endif %}</label>
+  {%- if t in ('textarea', 'markdown', 'list') %}
+  {%- set text = (value | join('\n')) if t == 'list' else (value or '') %}
+  {%- if t == 'markdown' %}
+  <div class="md-tools" role="toolbar" aria-label="Formatting for {{ f.label }}">
+    <button type="button" data-md="## " aria-label="Heading">H</button>
+    <button type="button" data-md="**" aria-label="Bold"><b>B</b></button>
+    <button type="button" data-md="_" aria-label="Italic"><i>I</i></button>
+    <button type="button" data-md="- " aria-label="Bulleted list">• List</button>
+    <button type="button" data-md="link" aria-label="Link">Link</button>
+    <button type="button" data-md-preview aria-pressed="false">Preview</button>
+  </div>
+  {%- endif %}
+  <textarea id="{{ id }}" data-input rows="{{ f.rows or (10 if t == 'markdown' else 4 if t == 'textarea' else 5) }}"{% if f.required %} required aria-required="true"{% endif %}{% if f.max %} data-max="{{ f.max }}"{% endif %}{% if t == 'markdown' %} class="mono"{% endif %}
+    aria-describedby="{{ id }}-hint{% if t == 'markdown' %} {{ id }}-mdhint{% endif %}">{{ text }}</textarea>
+  {%- if t == 'markdown' %}
+  <div class="md-preview prose" data-md-output hidden aria-live="polite"></div>
+  <p class="hint" id="{{ id }}-mdhint">Markdown: <code>## Heading</code>, <code>**bold**</code>, <code>- list item</code>, <code>[text](https://link)</code>. Blank line = new paragraph.</p>
+  {%- endif %}
+  {%- if t == 'list' %}<p class="hint" id="{{ id }}-hint">One item per line. {{ f.help or '' }}</p>{% else %}{{ help(f, id) }}{% if not (f.help or f.max) %}<span id="{{ id }}-hint" hidden></span>{% endif %}{% endif %}
+  {%- elif t == 'select' %}
+  <select id="{{ id }}" data-input{{ described(f, id) }}>
+    {%- for o in f.options %}<option value="{{ o }}"{% if o == value %} selected{% endif %}>{{ o or '— none —' }}</option>{% endfor %}
+  </select>
+  {{ help(f, id) }}
+  {%- elif t == 'icon' %}
+  <div class="icon-pick">
+    <select id="{{ id }}" data-input data-icon-select>
+      <option value="">— none —</option>
+      {%- for o in ICONS %}<option value="{{ o }}"{% if o == value %} selected{% endif %}>{{ o }}</option>{% endfor %}
+    </select>
+    <svg class="icon-preview" aria-hidden="true" data-icon-preview><use href="{{ url_for('static', filename='img/icons.svg') }}#i-{{ value or 'spark' }}"></use></svg>
+  </div>
+  {%- elif t == 'image' %}
+  {%- set mm = media(value) if value else None %}
+  <div class="img-pick" data-image-picker>
+    <input type="hidden" id="{{ id }}" data-input value="{{ value or '' }}">
+    <div class="img-thumb" data-thumb>{% if mm %}<img src="{{ media_url(value, 480) }}" alt="">{% else %}<span class="muted small">No image</span>{% endif %}</div>
+    <div class="img-meta">
+      <span class="small" data-img-label>{% if mm %}<code>{{ value }}</code><br>{{ mm.alt or '⚠ Missing alt text' }}{% else %}—{% endif %}</span>
+      <span class="img-actions">
+        <button type="button" class="btn btn-sm" data-choose aria-describedby="{{ id }}-label2">Choose image</button>
+        <button type="button" class="btn btn-sm btn-ghost" data-clear>Remove</button>
+      </span>
+      <span class="visually-hidden" id="{{ id }}-label2">for {{ f.label }}</span>
+    </div>
+  </div>
+  {{ help(f, id) }}
+  {%- else %}
+  {%- set itype = {'url': 'text', 'email': 'email', 'number': 'number', 'date': 'date'}.get(t, 'text') %}
+  <input id="{{ id }}" type="{{ itype }}" data-input value="{{ '' if value is none else (value | join(', ') if t == 'tags' else value) }}"
+    {%- if f.required %} required aria-required="true"{% endif %}{% if f.max %} data-max="{{ f.max }}"{% endif %}{% if t == 'url' %} inputmode="url" spellcheck="false"{% endif %}{% if f.key == 'slug' %} spellcheck="false" data-slug{% endif %}{% if f.key == 'title' %} data-title{% endif %}{{ described(f, id) if t != 'tags' else ' aria-describedby=' ~ id ~ '-hint' }}>
+  {%- if t == 'tags' %}<p class="hint" id="{{ id }}-hint">Separate with commas. {{ f.help or '' }}</p>{% else %}{{ help(f, id) }}{% endif %}
+  {%- endif %}
+</div>
+{%- endif %}
+{%- endmacro %}
+
+{% macro rep_item(f, v, uid) -%}
+<li class="rep-item" data-container>
+  <div class="rep-bar">
+    <span class="rep-title" data-rep-title>{{ (v.title or v.label or v.question or v.value or '') | truncate(60) or 'New item' }}</span>
+    <span class="rep-ctrl">
+      <button type="button" class="icon-btn" data-move="up" aria-label="Move item up">↑</button>
+      <button type="button" class="icon-btn" data-move="down" aria-label="Move item down">↓</button>
+      <button type="button" class="icon-btn icon-btn-danger" data-remove aria-label="Remove item">✕</button>
+    </span>
+  </div>
+  <div class="rep-body">
+    {%- for sub in f.fields %}{{ field(sub, v.get(sub.key), uid) }}{% endfor %}
+  </div>
+</li>
+{%- endmacro %}

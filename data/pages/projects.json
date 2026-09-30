@@ -1,0 +1,62 @@
+{
+  "seo": {
+    "title": "Projects | Case Studies & R&D Highlights",
+    "description": "Case studies and research and development highlights from ASSERT in AI, computer vision, IoT, edge computing and situational awareness.",
+    "og_image": "",
+    "noindex": false
+  },
+  "hero": {
+    "eyebrow": "Projects",
+    "title": "Case studies & R&D highlights.",
+    "text": "How we apply AI, computer vision and IoT to practical challenges — and the research that keeps our solutions ahead.",
+    "image": "engineering-sketches"
+  },
+  "empty": {
+    "title": "Case studies are coming soon",
+    "text": "We are preparing detailed write-ups of recent work. In the meantime, we are happy to walk you through relevant projects in a conversation."
+  },
+  "rnd": {
+    "eyebrow": "R&D highlights",
+    "title": "Where our research is focused",
+    "text": "Applied research that feeds directly into the systems we deliver.",
+    "areas": [
+      {
+        "title": "Edge AI for video analytics",
+        "text": "Efficient models that run on compact hardware next to the camera, reducing bandwidth and latency.",
+        "icon": "chip"
+      },
+      {
+        "title": "Multi-modal sensor fusion",
+        "text": "Combining video, radar, acoustic and IoT telemetry for more reliable detection and fewer false alarms.",
+        "icon": "radar"
+      },
+      {
+        "title": "Situational awareness",
+        "text": "Real-time operational pictures that bring together geospatial data, events and alerts.",
+        "icon": "target"
+      },
+      {
+        "title": "Document & language intelligence",
+        "text": "Large language models and retrieval that turn unstructured documents into structured, searchable knowledge.",
+        "icon": "ai"
+      },
+      {
+        "title": "Predictive maintenance",
+        "text": "Forecasting equipment failures from sensor patterns so maintenance happens before downtime.",
+        "icon": "factory"
+      },
+      {
+        "title": "Privacy-preserving vision",
+        "text": "On-device processing, anonymisation and data minimisation built into computer-vision pipelines.",
+        "icon": "shield"
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Build with ASSERT",
+    "title": "Have a technology challenge worth solving?",
+    "text": "Bring us the problem. We’ll help shape the requirements, choose the architecture and build the solution.",
+    "button_label": "Start a conversation",
+    "button_url": "/contact/"
+  }
+}

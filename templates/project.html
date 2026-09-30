@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}{{ item.title }} — Case Study{% endblock %}
+{% block description %}{{ item.summary }}{% endblock %}
+{% block og_image %}{{ item.image }}{% endblock %}
+{% block content %}
+{{ m.page_hero({'eyebrow': item.sector or 'Case study', 'title': item.title, 'text': item.summary},
+               [('Home', '/'), ('Projects', '/projects/'), (item.title, request.path)], item.image) }}
+
+{%- if item.results %}
+<div class="wrap"><dl class="fact-row fact-row-lift">{% for r in item.results %}<div class="fact"><dt>{{ r.label }}</dt><dd>{{ r.value }}</dd></div>{% endfor %}</dl></div>
+{%- endif %}
+
+<div class="section">
+  <div class="wrap detail">
+    <div class="detail-main">
+      {%- if item.challenge %}<section class="detail-block" aria-labelledby="ch-title"><h2 id="ch-title" class="block-title">The challenge</h2><div class="prose">{{ md(item.challenge, shift=1) }}</div></section>{% endif %}
+      {%- if item.solution %}<section class="detail-block" aria-labelledby="so-title"><h2 id="so-title" class="block-title">Our solution</h2><div class="prose">{{ md(item.solution, shift=1) }}</div></section>{% endif %}
+    </div>
+    <aside class="detail-aside" aria-label="Project details">
+      <div class="aside-card">
+        <dl class="meta-list">
+          {%- if item.client %}<dt>Client</dt><dd>{{ item.client }}</dd>{% endif %}
+          {%- if item.sector %}<dt>Sector</dt><dd>{{ item.sector }}</dd>{% endif %}
+          {%- if item.date %}<dt>Date</dt><dd><time datetime="{{ item.date }}">{{ fmt_date(item.date, '%B %Y') }}</time></dd>{% endif %}
+        </dl>
+        {%- if item.tags %}<ul class="tag-list" role="list">{% for t in item.tags %}<li>{{ t }}</li>{% endfor %}</ul>{% endif %}
+        <a class="btn btn-primary btn-block" href="/contact/">Start a similar project</a>
+      </div>
+    </aside>
+  </div>
+</div>
+{% endblock %}

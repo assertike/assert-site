@@ -1,0 +1,54 @@
+{% extends "admin/base.html" %}
+{% import "admin/_fields.html" as fx with context %}
+{% block title %}{{ title }}{% endblock %}
+{% block content %}
+<header class="page-head">
+  <div>
+    {%- if back %}<p class="kicker"><a href="{{ back }}">← Back</a></p>{% endif %}
+    <h1>{{ title }}{% if data.title %}: <span class="muted">{{ data.title }}</span>{% endif %}</h1>
+  </div>
+  <div class="head-actions">
+    {%- if view_url %}<a class="btn btn-ghost" href="{{ view_url }}" target="_blank" rel="noopener">View on site ↗<span class="visually-hidden"> (opens in a new tab)</span></a>{% endif %}
+  </div>
+</header>
+
+{%- if errors %}
+<div class="flash flash-error" role="alert" tabindex="-1" data-autofocus>
+  <strong>Please fix the following:</strong>
+  <ul>{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>
+</div>
+{%- endif %}
+
+<form method="post" class="editor" data-editor data-container novalidate>
+  <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+  <input type="hidden" name="payload" data-payload>
+  <div class="editor-fields">
+    {%- for f in fields %}{{ fx.field(f, data.get(f.key), 'r') }}{% endfor %}
+  </div>
+  <div class="save-bar">
+    <span class="muted small" data-dirty aria-live="polite"></span>
+    {%- if delete_url %}
+    <button type="submit" class="btn btn-danger-ghost" form="delete-form">Delete</button>
+    {%- endif %}
+    <button type="submit" class="btn btn-primary">Save changes</button>
+  </div>
+</form>
+{%- if delete_url %}
+<form id="delete-form" method="post" action="{{ delete_url }}" data-confirm="Delete this item permanently? A backup will be kept in data/.backups.">
+  <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+</form>
+{%- endif %}
+
+<dialog class="picker" data-picker aria-labelledby="picker-title">
+  <form method="dialog" class="picker-inner">
+    <header class="picker-head">
+      <h2 id="picker-title">Choose an image</h2>
+      <label class="visually-hidden" for="picker-search">Search images</label>
+      <input id="picker-search" type="search" placeholder="Search by name or alt text" data-picker-search>
+      <button class="icon-btn" value="cancel" aria-label="Close">✕</button>
+    </header>
+    <ul class="picker-grid" data-picker-grid role="list"></ul>
+    <p class="muted small">Need a new image? <a href="{{ url_for('admin.media') }}" target="_blank" rel="noopener">Upload it in the media library ↗</a>, then reopen this dialog.</p>
+  </form>
+</dialog>
+{% endblock %}

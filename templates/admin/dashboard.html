@@ -1,0 +1,53 @@
+{% extends "admin/base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<header class="page-head">
+  <div><p class="kicker">Welcome back, {{ session.user.name }}</p><h1>Dashboard</h1></div>
+  <a class="btn btn-outline" href="/" target="_blank" rel="noopener">View website ↗<span class="visually-hidden"> (opens in a new tab)</span></a>
+</header>
+
+<section aria-labelledby="c-title">
+  <h2 id="c-title" class="visually-hidden">Content overview</h2>
+  <ul class="stat-grid" role="list">
+    {%- for key, spec in COLLECTIONS.items() %}
+    <li><a class="stat-card" href="{{ url_for('admin.collection', collection=key) }}"><span class="stat-n">{{ counts[key] }}</span><span>{{ spec.label }}</span></a></li>
+    {%- endfor %}
+    <li><a class="stat-card" href="{{ url_for('admin.media') }}"><span class="stat-n">{{ media_count }}</span><span>Images</span></a></li>
+    <li><a class="stat-card" href="{{ url_for('admin.messages') }}"><span class="stat-n">{{ unread }}</span><span>Unread messages</span></a></li>
+  </ul>
+</section>
+
+<div class="two-col">
+  <section class="panel" aria-labelledby="seo-title">
+    <h2 id="seo-title">SEO & accessibility check</h2>
+    {%- if issues %}
+    <p class="muted">{{ issues | length }} item{{ 's' if issues|length != 1 }} to review.</p>
+    <ul class="issue-list">
+      {%- for i in issues[:25] %}<li><a href="{{ i.url }}"><strong>{{ i.where }}</strong><span>{{ i.what }}</span></a></li>{% endfor %}
+    </ul>
+    {%- else %}
+    <p class="ok">✓ No issues found. Every page has a meta description, every image has alternative text.</p>
+    {%- endif %}
+  </section>
+
+  <section class="panel" aria-labelledby="msg-title">
+    <h2 id="msg-title">Latest messages</h2>
+    {%- if messages %}
+    <ul class="msg-list">
+      {%- for msg in messages %}
+      <li class="{{ 'is-unread' if not msg.read }}"><a href="{{ url_for('admin.message', mid=msg.id) }}">
+        <strong>{{ msg.name }}</strong>{% if not msg.read %} <span class="badge">New</span>{% endif %}
+        <span>{{ msg.topic }} · {{ msg.created[:10] }}</span></a></li>
+      {%- endfor %}
+    </ul>
+    {%- else %}<p class="muted">No messages yet.</p>{% endif %}
+    <h2 class="mt">Quick links</h2>
+    <ul class="quick">
+      <li><a href="{{ url_for('admin.edit_item', collection='insights') }}">Write a new post</a></li>
+      <li><a href="{{ url_for('admin.edit_page', name='home') }}">Edit the home page</a></li>
+      <li><a href="{{ url_for('admin.media') }}">Upload images</a></li>
+      <li><a href="/sitemap.xml" target="_blank" rel="noopener">View sitemap.xml ↗</a></li>
+    </ul>
+  </section>
+</div>
+{% endblock %}

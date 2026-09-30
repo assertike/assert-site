@@ -1,0 +1,47 @@
+# Production stack: the Flask/gunicorn app behind Caddy (automatic HTTPS).
+#   cp .env.example .env   # then edit DOMAIN, ACME_EMAIL, SECRET_KEY
+#   docker compose up -d --build
+#   docker compose exec app python manage.py create-admin
+services:
+  app:
+    build: .
+    image: assert-cms:latest
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      TRUST_PROXY: "1"
+      COOKIE_SECURE: "1"
+      PORT: "8000"
+    volumes:
+      - assert-data:/app/data
+      - assert-uploads:/app/static/uploads
+    expose:
+      - "8000"
+    read_only: true
+    tmpfs:
+      - /tmp
+    security_opt:
+      - no-new-privileges:true
+    cap_drop: [ALL]
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+    env_file: .env
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./docker/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+
+volumes:
+  assert-data:
+  assert-uploads:
+  caddy-data:
+  caddy-config:

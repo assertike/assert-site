@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block content %}
+{%- set meta %}{% if page.updated %}Last updated <time datetime="{{ page.updated }}">{{ fmt_date(page.updated) }}</time>{% endif %}{% endset %}
+{{ m.page_hero(page.hero, [('Home', '/'), (page.hero.title, request.path)], None, meta if page.updated else None) }}
+<div class="section">
+  <div class="wrap article">
+    <div class="prose prose-lg article-body">{{ md(page.body) }}</div>
+  </div>
+</div>
+{% endblock %}

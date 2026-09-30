@@ -1,0 +1,146 @@
+{%- set brand = site.brand -%}
+{%- set seo_data = (page.seo if page is defined and page and page.seo is defined else (item.seo if item is defined and item and item.seo is defined else {})) -%}
+{%- set meta_title = page_title(seo_data.title or (self.title() | trim), request.path == '/') -%}
+{%- set meta_desc = seo_data.description or (self.description() | trim) or site.seo.description -%}
+{%- set og_id = seo_data.og_image or (self.og_image() | trim) or site.seo.og_image -%}
+{%- set canonical = abs_url(request.path) -%}
+<!doctype html>
+<html lang="en" class="no-js" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ meta_title }}</title>
+  <meta name="description" content="{{ meta_desc }}">
+  <link rel="canonical" href="{{ canonical }}">
+  {%- if seo_data.noindex %}
+  <meta name="robots" content="noindex, follow">
+  {%- else %}
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  {%- endif %}
+  <meta name="theme-color" content="#07080B" data-theme-color>
+  <meta name="color-scheme" content="dark light">
+  <meta name="format-detection" content="telephone=no">
+  {%- if site.seo.google_verification %}<meta name="google-site-verification" content="{{ site.seo.google_verification }}">{% endif %}
+  {%- if site.seo.bing_verification %}<meta name="msvalidate.01" content="{{ site.seo.bing_verification }}">{% endif %}
+
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+  <meta property="og:site_name" content="{{ brand.name }}">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:title" content="{{ meta_title }}">
+  <meta property="og:description" content="{{ meta_desc }}">
+  <meta property="og:url" content="{{ canonical }}">
+  {%- if og_id and media(og_id) %}
+  <meta property="og:image" content="{{ abs_url(media_url(og_id, og=True)) }}">
+  <meta property="og:image:alt" content="{{ media(og_id).alt }}">
+  {%- endif %}
+  <meta name="twitter:card" content="summary_large_image">
+  {%- if site.seo.twitter %}<meta name="twitter:site" content="{{ site.seo.twitter }}">{% endif %}
+  {% block head_extra %}{% endblock %}
+
+  <link rel="preload" href="{{ url_for('static', filename='fonts/manrope-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}?v={{ asset_v }}">
+  <link rel="icon" href="{{ url_for('static', filename='img/favicon-32.png') }}" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/icon-180.png') }}">
+  <link rel="manifest" href="{{ url_for('manifest') }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ brand.name }} Insights" href="{{ url_for('feed') }}">
+  <script type="application/ld+json">{{ jsonld }}</script>
+  <script src="{{ url_for('static', filename='js/site.js') }}?v={{ asset_v }}"></script>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header" data-header>
+    <div class="wrap header-inner">
+      <a class="logo" href="{{ url_for('home') }}"{% if request.path == '/' %} aria-current="page"{% endif %}>
+        <img class="logo-for-dark" src="{{ url_for('static', filename='img/logo.png') }}" alt="{{ brand.name }} — home" width="184" height="34">
+        <img class="logo-for-light" src="{{ url_for('static', filename='img/logo-dark.png') }}" alt="{{ brand.name }} — home" width="184" height="34">
+      </a>
+
+      <button class="theme-toggle" type="button" aria-pressed="false" data-theme-toggle>
+        <svg class="icon-moon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+        <svg class="icon-sun" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+        <span class="visually-hidden">Light theme</span>
+      </button>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="nav-toggle-bars" aria-hidden="true"></span>
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main" data-nav>
+        <ul class="nav-list">
+          {%- for n in site.navigation %}
+          {%- set active = is_active(n.url) %}
+          <li class="nav-item{% if n.submenu %} has-sub{% endif %}">
+            <a class="nav-link" href="{{ link(n.url) }}"{% if request.path == n.url %} aria-current="page"{% elif active and n.url != '/' %} data-active{% endif %}>{{ n.label }}</a>
+            {%- if n.submenu and dropdowns[n.submenu] %}
+            <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-{{ loop.index }}" data-sub-toggle>
+              <span class="visually-hidden">Show {{ n.label }} submenu</span>
+              <svg aria-hidden="true" focusable="false" viewBox="0 0 12 12" width="12" height="12"><path d="M2 4.5 6 8l4-3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            </button>
+            <ul class="sub-menu" id="sub-{{ loop.index }}" data-sub>
+              {%- for s in dropdowns[n.submenu] %}
+              <li><a href="{{ n.url }}{{ s.slug }}/"{% if request.path == n.url ~ s.slug ~ '/' %} aria-current="page"{% endif %}>
+                {{ icon(s.icon or 'spark', 'icon sub-icon') }}
+                <span><strong>{{ s.title }}</strong>{% if s.tagline or s.summary %}<small>{{ (s.tagline or s.summary) | truncate(70) }}</small>{% endif %}</span>
+              </a></li>
+              {%- endfor %}
+              <li class="sub-all"><a href="{{ n.url }}">All {{ n.label | lower }} <span aria-hidden="true">→</span></a></li>
+            </ul>
+            {%- endif %}
+          </li>
+          {%- endfor %}
+        </ul>
+        <a class="btn btn-primary nav-cta" href="{{ url_for('contact') }}">Talk to us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-cta">
+        <p class="footer-kicker">Have a project in mind?</p>
+        <a class="footer-mail" href="mailto:{{ site.contact.email }}">{{ site.contact.email }}<span class="footer-mail-arrow" aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img class="logo-for-dark" src="{{ url_for('static', filename='img/logo.png') }}" alt="{{ brand.name }}" width="184" height="34" loading="lazy">
+          <img class="logo-for-light" src="{{ url_for('static', filename='img/logo-dark.png') }}" alt="{{ brand.name }}" width="184" height="34" loading="lazy">
+          <p>{{ site.footer.text }}</p>
+          {%- if site.contact.linkedin %}
+          <a class="footer-social" href="{{ site.contact.linkedin }}" rel="noopener" target="_blank">
+            {{ icon('linkedin') }}<span>{{ brand.name }} on LinkedIn<span class="visually-hidden"> (opens in a new tab)</span></span>
+          </a>
+          {%- endif %}
+        </div>
+        {%- for col in site.footer.columns %}
+        <nav class="footer-col" aria-label="{{ col.title }}">
+          <h2 class="footer-title">{{ col.title }}</h2>
+          <ul>{% for l in col.links %}<li><a href="{{ link(l.url) }}">{{ l.label }}</a></li>{% endfor %}</ul>
+        </nav>
+        {%- endfor %}
+        <div class="footer-col">
+          <h2 class="footer-title">Contact</h2>
+          <address>
+            <a href="tel:{{ site.contact.phone | replace(' ', '') | replace('.', '') }}">{{ site.contact.phone }}</a><br>
+            {{ site.contact.street }}<br>{{ site.contact.locality }}{% if site.contact.region %}, {{ site.contact.region }}{% endif %}<br>
+            <span class="muted">{{ site.contact.hours }}</span>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© {{ year }} {{ brand.legal_name or brand.name }}. All rights reserved.</p>
+        <ul class="footer-legal">
+          {%- for l in site.footer.legal %}<li><a href="{{ link(l.url) }}">{{ l.label }}</a></li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+{#- Blocks used only for defaults in <head>; child templates may override. -#}
+{%- if false %}{% block title %}{% endblock %}{% block description %}{% endblock %}{% block og_image %}{% endblock %}{% endif %}

@@ -1,0 +1,14 @@
+{
+  "seo": {
+    "title": "Accessibility Statement",
+    "description": "ASSERT is committed to making assert.gr accessible to everyone, in line with WCAG 2.2 level AA.",
+    "og_image": "",
+    "noindex": false
+  },
+  "hero": {
+    "title": "Accessibility statement",
+    "text": "We want everyone to be able to use our website, regardless of ability or technology."
+  },
+  "updated": "2026-09-30",
+  "body": "## Our commitment\n\nASSERT is committed to making this website accessible, in line with the **Web Content Accessibility Guidelines (WCAG) 2.2, level AA**, and the principles of the European Accessibility Act.\n\n## What we have done\n\n- **Semantic structure** — every page uses landmarks (header, navigation, main, footer), a single main heading and a logical heading order, so screen-reader users can navigate efficiently.\n- **Keyboard access** — all navigation, menus and forms can be used with a keyboard. A “Skip to main content” link is the first item on every page, and focus is always clearly visible.\n- **Colour and contrast** — text and interactive elements meet WCAG AA contrast ratios. Colour is never the only way information is conveyed.\n- **Text alternatives** — informative images have descriptive alternative text; decorative images are hidden from assistive technology.\n- **Forms** — every field has a visible label. Errors are listed in a summary at the top of the form, linked to the relevant field and announced to screen readers.\n- **Motion** — animations are subtle and are switched off when your device is set to reduce motion.\n- **Flexible layout** — the site adapts to any screen size and supports zoom up to 400% without loss of content.\n- **Forced colours** — the site remains usable in Windows High Contrast and other forced-colour modes.\n\n## Compatibility\n\nThe website is designed to work with recent versions of major browsers and with common assistive technologies, including NVDA, JAWS, VoiceOver and TalkBack.\n\n## Known limitations\n\nSome older documents or third-party content that we link to may not be fully accessible. If you need information in a different format, please contact us and we will do our best to help.\n\n## Feedback and contact\n\nIf you experience any difficulty using this website, or have suggestions to improve its accessibility, please contact us:\n\n- Email: [info@assert.gr](mailto:info@assert.gr)\n- Phone: +30 215 555 6984\n\nWe aim to respond to accessibility feedback within five working days."
+}

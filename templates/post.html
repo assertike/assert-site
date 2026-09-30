@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block title %}{{ item.title }}{% endblock %}
+{% block description %}{{ item.excerpt }}{% endblock %}
+{% block og_image %}{{ item.image }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block head_extra %}
+  {%- if item.date %}<meta property="article:published_time" content="{{ item.date }}">{% endif %}
+  {%- for t in item.tags %}<meta property="article:tag" content="{{ t }}">{% endfor %}
+{% endblock %}
+{% block content %}
+{%- set meta %}<span>{{ item.author or site.brand.name }}</span><span aria-hidden="true">·</span><time datetime="{{ item.date }}">{{ fmt_date(item.date) }}</time><span aria-hidden="true">·</span><span>{{ item.body | reading_time }} min read</span>{% endset %}
+{{ m.page_hero({'eyebrow': item.category or 'Insight', 'title': item.title, 'text': item.excerpt},
+               [('Home', '/'), ('Insights', '/insights/'), (item.title, request.path)], None, meta) }}
+
+<article class="section" aria-labelledby="page-title">
+  <div class="wrap article">
+    {%- if item.image %}<figure class="article-figure viewfinder is-on">{{ img(item.image, sizes='(min-width: 1100px) 1000px, 100vw', cls='cover') }}</figure>{% endif %}
+    <div class="prose prose-lg article-body">{{ md(item.body) }}</div>
+    {%- if item.tags %}
+    <footer class="article-foot">
+      <h2 class="visually-hidden">Topics</h2>
+      <ul class="tag-list" role="list">{% for t in item.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+    </footer>
+    {%- endif %}
+  </div>
+</article>
+
+{%- set more = others | selectattr('date') | list %}
+{%- if more %}
+<section class="section section-tint" aria-labelledby="more-title">
+  <div class="wrap">
+    <div class="section-head"><div><p class="eyebrow">Keep reading</p><h2 class="section-title" id="more-title">More insights</h2></div></div>
+    <ul class="post-grid" role="list">{% for p in more[:3] %}{{ m.post_card(p) }}{% endfor %}</ul>
+  </div>
+</section>
+{%- endif %}
+{% endblock %}

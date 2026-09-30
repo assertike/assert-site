@@ -1,0 +1,26 @@
+{% extends "admin/base.html" %}
+{% block title %}Messages{% endblock %}
+{% block content %}
+<header class="page-head">
+  <div><p class="kicker">Inbox</p><h1>Messages</h1></div>
+  {%- if items %}<a class="btn btn-outline" href="{{ url_for('admin.messages_csv') }}">Export CSV</a>{% endif %}
+</header>
+<div class="panel">
+  {%- if items %}
+  <table class="table">
+    <caption class="visually-hidden">Contact form messages, newest first</caption>
+    <thead><tr><th scope="col">From</th><th scope="col">Topic</th><th scope="col">Received</th><th scope="col">Status</th></tr></thead>
+    <tbody>
+      {%- for m in items %}
+      <tr class="{{ 'is-unread' if not m.read }}">
+        <th scope="row"><a href="{{ url_for('admin.message', mid=m.id) }}">{{ m.name }}</a><span class="muted small block">{{ m.email }}{% if m.company %} · {{ m.company }}{% endif %}</span></th>
+        <td>{{ m.topic }}</td>
+        <td><time datetime="{{ m.created }}">{{ m.created | replace('T', ' ') }}</time></td>
+        <td>{% if m.read %}<span class="tag">Read</span>{% else %}<span class="tag tag-new">New</span>{% endif %}</td>
+      </tr>
+      {%- endfor %}
+    </tbody>
+  </table>
+  {%- else %}<p class="muted">No messages yet. Submissions from the contact form will appear here.</p>{% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ spec.label }}{% endblock %}
+{% block content %}
+<header class="page-head">
+  <div><p class="kicker">Collection</p><h1>{{ spec.label }}</h1></div>
+  <a class="btn btn-primary" href="{{ url_for('admin.edit_item', collection=name) }}">+ New {{ spec.singular | lower }}</a>
+</header>
+<div class="panel">
+  {%- if items %}
+  <form method="post" action="{{ url_for('admin.reorder', collection=name) }}" data-reorder>
+    <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+    <table class="table">
+      <caption class="visually-hidden">{{ spec.label }} — use the arrow buttons to change the order, then save.</caption>
+      <thead><tr><th scope="col">Order</th><th scope="col">Title</th><th scope="col">Status</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr></thead>
+      <tbody data-sortable>
+        {%- for it in items %}
+        <tr>
+          <td class="order-cell">
+            <input type="hidden" name="slug" value="{{ it.slug }}">
+            <button type="button" class="icon-btn" data-row-up aria-label="Move {{ it.title }} up">↑</button>
+            <button type="button" class="icon-btn" data-row-down aria-label="Move {{ it.title }} down">↓</button>
+          </td>
+          <th scope="row">
+            <a href="{{ url_for('admin.edit_item', collection=name, slug=it.slug) }}">{{ it.title }}</a>
+            <span class="muted small block">{{ spec.path }}{{ it.slug }}/{% if it.date %} · {{ it.date }}{% endif %}</span>
+          </th>
+          <td>{% if it.published %}<span class="tag tag-ok">Published</span>{% else %}<span class="tag">Draft</span>{% endif %}</td>
+          <td class="actions-cell">
+            <a class="btn btn-sm" href="{{ url_for('admin.edit_item', collection=name, slug=it.slug) }}">Edit<span class="visually-hidden"> {{ it.title }}</span></a>
+            <a class="btn btn-sm btn-ghost" href="{{ url_for('admin.edit_item', collection=name, duplicate=it.slug) }}">Duplicate<span class="visually-hidden"> {{ it.title }}</span></a>
+            {%- if it.published %}<a class="btn btn-sm btn-ghost" href="{{ spec.path }}{{ it.slug }}/" target="_blank" rel="noopener">View<span class="visually-hidden"> {{ it.title }} (opens in a new tab)</span></a>{% endif %}
+          </td>
+        </tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+    <p class="form-actions"><button class="btn" type="submit">Save order</button></p>
+  </form>
+  {%- else %}
+  <p class="muted">Nothing here yet. <a href="{{ url_for('admin.edit_item', collection=name) }}">Create the first {{ spec.singular | lower }}</a>.</p>
+  {%- endif %}
+</div>
+{% endblock %}

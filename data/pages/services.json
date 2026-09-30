@@ -1,0 +1,34 @@
+{
+  "seo": {
+    "title": "Services | AI, Computer Vision, IoT, Software & Consulting",
+    "description": "Explore ASSERT services: artificial intelligence, computer vision, IoT and edge computing, defence and security solutions, custom software and IT consulting.",
+    "og_image": "",
+    "noindex": false
+  },
+  "hero": {
+    "eyebrow": "Services",
+    "title": "Technology services built around outcomes.",
+    "text": "From AI strategy and architecture to production software and mission-oriented systems, ASSERT brings together every capability needed to solve complex technology problems.",
+    "image": "circuit-board-red"
+  },
+  "why": {
+    "eyebrow": "Why ASSERT",
+    "title": "One team from definition to delivery.",
+    "text": "Our consulting is grounded in engineering. Our engineering is grounded in the operational problem.",
+    "points": [
+      "Public and private-sector experience",
+      "AI, vision, IoT and software expertise in one team",
+      "Cloud, on-premise, hybrid and edge deployments",
+      "Integration-first thinking",
+      "Security and privacy by design"
+    ],
+    "image": "handshake-partnership"
+  },
+  "cta": {
+    "eyebrow": "Build with ASSERT",
+    "title": "Not sure which service fits?",
+    "text": "Describe the problem — we’ll recommend the right mix of capabilities and a pragmatic first step.",
+    "button_label": "Discuss your requirements",
+    "button_url": "/contact/"
+  }
+}

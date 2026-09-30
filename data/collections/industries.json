@@ -1,0 +1,274 @@
+[
+  {
+    "title": "Smart Cities",
+    "slug": "smart-cities",
+    "published": true,
+    "order": 1,
+    "icon": "city",
+    "summary": "Traffic optimisation, anomaly detection and crowd analytics for safer, smarter urban environments.",
+    "image": "prague-city-aerial",
+    "body": "Cities generate huge amounts of data from cameras, sensors and connected infrastructure. We help municipalities and operators turn that data into real-time insight — improving mobility, safety and the quality of public services while respecting citizens’ privacy.",
+    "use_cases": [
+      {
+        "title": "Traffic optimisation",
+        "text": "Vehicle counting, classification and flow analysis to improve signal timing and planning."
+      },
+      {
+        "title": "Crowd analytics",
+        "text": "Anonymous occupancy and flow metrics for public spaces, events and transport hubs."
+      },
+      {
+        "title": "Anomaly detection",
+        "text": "Real-time alerts for incidents, obstructions and unusual activity."
+      },
+      {
+        "title": "Environmental monitoring",
+        "text": "IoT sensors for air quality, noise and energy use across the city."
+      }
+    ],
+    "services": [
+      "computer-vision",
+      "internet-of-things",
+      "artificial-intelligence"
+    ],
+    "seo": {
+      "title": "Smart City Solutions | Traffic & Crowd Analytics",
+      "description": "AI and computer-vision solutions for smart cities: traffic optimisation, crowd analytics, anomaly detection and IoT environmental monitoring.",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "Defence & Security",
+    "slug": "defence-and-security",
+    "published": true,
+    "order": 2,
+    "icon": "shield",
+    "summary": "Situational awareness, perimeter surveillance and threat detection through multi-modal AI vision systems.",
+    "image": "surveillance-drone",
+    "body": "Security and defence organisations need to detect threats early, with fewer false alarms, in environments where connectivity and time are limited. We combine sensors, AI and resilient software to give operators a clear, shared picture.",
+    "use_cases": [
+      {
+        "title": "Perimeter surveillance",
+        "text": "AI-assisted detection of intrusions across camera, radar and sensor networks."
+      },
+      {
+        "title": "Situational awareness",
+        "text": "Geospatial operational pictures that combine sensor feeds, events and assets."
+      },
+      {
+        "title": "Threat detection",
+        "text": "Multi-modal analysis to identify and classify objects of interest."
+      },
+      {
+        "title": "Research & development",
+        "text": "Prototyping and evaluation of new sensing and AI capabilities."
+      }
+    ],
+    "services": [
+      "defence-and-security",
+      "computer-vision",
+      "artificial-intelligence"
+    ],
+    "seo": {
+      "title": "Defence & Security Industry Solutions",
+      "description": "Situational awareness, perimeter surveillance and multi-modal threat detection for defence and security organisations.",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "Manufacturing & Industry",
+    "slug": "manufacturing",
+    "published": true,
+    "order": 3,
+    "icon": "factory",
+    "summary": "Automated quality control, asset monitoring and less downtime through AI-enabled sensors and cameras.",
+    "image": "robotics-lab-engineer",
+    "body": "Manufacturers and infrastructure operators need consistent quality and reliable equipment. We apply computer vision, IoT and predictive analytics on the factory floor and across physical assets.",
+    "use_cases": [
+      {
+        "title": "Visual quality inspection",
+        "text": "Detect defects automatically at line speed."
+      },
+      {
+        "title": "Asset monitoring",
+        "text": "Track the condition and utilisation of equipment in real time."
+      },
+      {
+        "title": "Predictive maintenance",
+        "text": "Anticipate failures from sensor patterns before they cause downtime."
+      },
+      {
+        "title": "Worker safety",
+        "text": "Detect safety-zone breaches and missing protective equipment."
+      }
+    ],
+    "services": [
+      "computer-vision",
+      "internet-of-things",
+      "artificial-intelligence"
+    ],
+    "seo": {
+      "title": "Manufacturing AI | Quality Inspection & Predictive Maintenance",
+      "description": "AI, computer vision and IoT for manufacturing: automated quality control, asset monitoring and predictive maintenance.",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "Public Sector",
+    "slug": "public-sector",
+    "published": true,
+    "order": 4,
+    "icon": "gov",
+    "summary": "Digital services, workflow systems, interoperability, data platforms and IT programme consulting.",
+    "image": "berlaymont-european-commission",
+    "body": "Public organisations must deliver better digital services with limited resources, strict procurement rules and high expectations for accessibility and security. We support them from strategy and technical specifications to delivery.",
+    "use_cases": [
+      {
+        "title": "Digital public services",
+        "text": "Accessible, citizen-facing services and back-office workflows."
+      },
+      {
+        "title": "Interoperability",
+        "text": "Secure data exchange between agencies and legacy systems."
+      },
+      {
+        "title": "Technical specifications",
+        "text": "Clear, market-aligned requirements for public tenders."
+      },
+      {
+        "title": "Data platforms",
+        "text": "Analytics and reporting that support evidence-based policy."
+      }
+    ],
+    "services": [
+      "it-consulting",
+      "custom-software-development",
+      "artificial-intelligence"
+    ],
+    "seo": {
+      "title": "Public Sector Digital Transformation",
+      "description": "Digital services, interoperability, data platforms and IT programme consulting for public-sector organisations in Greece and the EU.",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "Enterprise",
+    "slug": "enterprise",
+    "published": true,
+    "order": 5,
+    "icon": "building",
+    "summary": "Custom business applications, systems integration, AI automation, data platforms and legacy modernisation.",
+    "image": "server-racks",
+    "body": "Enterprises need technology that fits their processes, integrates with what they already run and scales with the business. We deliver custom platforms and AI automation that remove friction from everyday operations.",
+    "use_cases": [
+      {
+        "title": "Process automation",
+        "text": "AI agents and workflows that remove repetitive manual work."
+      },
+      {
+        "title": "Systems integration",
+        "text": "Connect ERP, CRM and operational systems through reliable APIs."
+      },
+      {
+        "title": "Knowledge search",
+        "text": "Secure, AI-powered search across internal documents."
+      },
+      {
+        "title": "Legacy modernisation",
+        "text": "Incremental migration of critical systems to modern platforms."
+      }
+    ],
+    "services": [
+      "custom-software-development",
+      "artificial-intelligence",
+      "it-consulting"
+    ],
+    "seo": {
+      "title": "Enterprise Software & AI Automation",
+      "description": "Custom business applications, systems integration, AI automation and legacy modernisation for enterprises.",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "Professional Services",
+    "slug": "professional-services",
+    "published": true,
+    "order": 6,
+    "icon": "briefcase",
+    "summary": "Document intelligence, knowledge management, case workflows and automation for knowledge-intensive organisations.",
+    "image": "open-plan-office",
+    "body": "Law firms, consultancies and other knowledge-intensive organisations spend much of their time on documents and administration. We build tools — including our own LawFlow product — that reduce that burden.",
+    "use_cases": [
+      {
+        "title": "Document intelligence",
+        "text": "Extract, classify and summarise information from documents."
+      },
+      {
+        "title": "Case & matter management",
+        "text": "Structured workflows for cases, tasks, deadlines and billing."
+      },
+      {
+        "title": "Knowledge management",
+        "text": "Make institutional knowledge searchable and reusable."
+      },
+      {
+        "title": "Client intake",
+        "text": "Turn client information into structured records automatically."
+      }
+    ],
+    "services": [
+      "artificial-intelligence",
+      "custom-software-development"
+    ],
+    "seo": {
+      "title": "AI for Professional Services & Law Firms",
+      "description": "Document intelligence, knowledge management and case-workflow automation for law firms and professional-services organisations.",
+      "og_image": "",
+      "noindex": false
+    }
+  },
+  {
+    "title": "Food & Beverage",
+    "slug": "food-and-beverage",
+    "published": true,
+    "order": 7,
+    "icon": "coffee",
+    "summary": "Connected-device analytics, forecasting, commercial intelligence and operational visibility — including CoffeeAnalytics.",
+    "image": "coffee-cups-table",
+    "body": "Beverage suppliers and food businesses need to know what is being consumed, where and when. Our CoffeeAnalytics platform and custom solutions connect equipment and sales data to forecasting and commercial planning.",
+    "use_cases": [
+      {
+        "title": "Consumption visibility",
+        "text": "Connected equipment that reports usage in real time."
+      },
+      {
+        "title": "Demand forecasting",
+        "text": "AI forecasts that support stock planning and logistics."
+      },
+      {
+        "title": "Sales intelligence",
+        "text": "Insight into customer performance and growth opportunities."
+      },
+      {
+        "title": "Service operations",
+        "text": "Proactive maintenance and service scheduling for equipment."
+      }
+    ],
+    "services": [
+      "internet-of-things",
+      "artificial-intelligence",
+      "custom-software-development"
+    ],
+    "seo": {
+      "title": "Food & Beverage Analytics | IoT & Forecasting",
+      "description": "Connected-device analytics, AI forecasting and commercial intelligence for food and beverage suppliers, including CoffeeAnalytics.",
+      "og_image": "",
+      "noindex": false
+    }
+  }
+]

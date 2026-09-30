@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block og_image %}{{ page.hero.image }}{% endblock %}
+{% block content %}
+{{ m.page_hero(page.hero, [('Home', '/'), ('Services', '/services/')], page.hero.image) }}
+
+<section class="section" aria-labelledby="list-title">
+  <div class="wrap">
+    <h2 class="visually-hidden" id="list-title">Our services</h2>
+    <ul class="svc-rows" role="list">
+      {%- for s in items %}
+      <li class="svc-row reveal">
+        <a class="svc-row-link" href="/services/{{ s.slug }}/">
+          <span class="svc-row-media viewfinder">{{ img(s.image, sizes='(min-width: 960px) 30vw, 100vw', decorative=True, cls='cover') }}</span>
+          <span class="svc-row-body">
+            <span class="svc-row-top"><span class="svc-num">{{ '%02d' % loop.index }}</span>{{ icon(s.icon or 'spark') }}</span>
+            <h3 class="svc-row-title">{{ s.title }}</h3>
+            <span class="svc-row-text">{{ s.summary }}</span>
+            {%- if s.capabilities %}
+            <span class="svc-row-caps">{% for c in s.capabilities[:4] %}<span class="chip">{{ c }}</span>{% endfor %}</span>
+            {%- endif %}
+            <span class="svc-more" aria-hidden="true">Explore {{ s.title }} <span class="btn-arrow">→</span></span>
+          </span>
+        </a>
+      </li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>
+
+{%- set w = page.why %}
+<section class="section section-alt" aria-labelledby="why-title">
+  <div class="grid-lines" aria-hidden="true"></div>
+  <div class="wrap split">
+    <div class="split-copy">
+      {{ m.eyebrow(w.eyebrow) }}
+      <h2 class="section-title" id="why-title">{{ w.title }}</h2>
+      <p class="section-lede">{{ w.text }}</p>
+      <ul class="check-list">{% for p in w.points %}<li>{{ p }}</li>{% endfor %}</ul>
+    </div>
+    {%- if w.image %}<figure class="split-media viewfinder is-on">{{ img(w.image, sizes='(min-width: 960px) 45vw, 100vw', cls='cover') }}</figure>{% endif %}
+  </div>
+</section>
+
+{{ m.cta_band(page.cta) }}
+{% endblock %}

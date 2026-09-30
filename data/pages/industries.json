@@ -1,0 +1,25 @@
+{
+  "seo": {
+    "title": "Industries | Smart Cities, Defence, Manufacturing & More",
+    "description": "ASSERT develops AI, computer vision and IoT solutions for smart cities, defence and security, manufacturing, the public sector, enterprise and more.",
+    "og_image": "",
+    "noindex": false
+  },
+  "hero": {
+    "eyebrow": "Industries",
+    "title": "Technology shaped by the environment where it operates.",
+    "text": "We combine reusable engineering capabilities with domain understanding, regulatory awareness and the operational realities of each sector.",
+    "image": "earth-network-night"
+  },
+  "principle": {
+    "title": "Different sector. Same principle: understand the operation first.",
+    "text": "We start with users, processes, constraints and systems — then design the technology."
+  },
+  "cta": {
+    "eyebrow": "Build with ASSERT",
+    "title": "Don’t see your sector?",
+    "text": "Our capabilities transfer well. Tell us about your environment and the problem you need to solve.",
+    "button_label": "Discuss your sector",
+    "button_url": "/contact/"
+  }
+}

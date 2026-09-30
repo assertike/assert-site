@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block og_image %}{{ page.hero.image }}{% endblock %}
+{% block content %}
+{{ m.page_hero(page.hero, [('Home', '/'), ('Products', '/products/')], page.hero.image) }}
+
+<section class="section" aria-labelledby="list-title">
+  <div class="wrap">
+    <h2 class="visually-hidden" id="list-title">Our products</h2>
+    <ul class="feature-splits" role="list">
+      {%- for p in items %}{{ m.product_card(p) }}{% endfor %}
+    </ul>
+  </div>
+</section>
+
+{%- set c = page.custom %}
+{%- if c.title %}
+<section class="section section-tint" aria-labelledby="custom-title">
+  <div class="wrap band">
+    <div>
+      {{ m.eyebrow(c.eyebrow) }}
+      <h2 class="section-title" id="custom-title">{{ c.title }}</h2>
+      <p class="section-lede">{{ c.text }}</p>
+    </div>
+    {%- if c.button_label %}<a class="btn btn-primary btn-lg" href="{{ link(c.button_url) }}">{{ c.button_label }} <span class="btn-arrow" aria-hidden="true">→</span></a>{% endif %}
+  </div>
+</section>
+{%- endif %}
+
+{{ m.cta_band(page.cta) }}
+{% endblock %}

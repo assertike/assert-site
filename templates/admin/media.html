@@ -1,0 +1,69 @@
+{% extends "admin/base.html" %}
+{% block title %}Media library{% endblock %}
+{% block content %}
+<header class="page-head"><div><p class="kicker">Assets</p><h1>Media library</h1></div></header>
+
+<section class="panel" aria-labelledby="up-title">
+  <h2 id="up-title">Upload images</h2>
+  <form method="post" enctype="multipart/form-data" class="upload-form">
+    <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+    <div class="fi">
+      <label for="files">Image files</label>
+      <input id="files" name="files" type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple required aria-describedby="files-hint">
+      <p class="hint" id="files-hint">JPG, PNG, WebP or GIF, up to 16 MB. Images are converted to responsive WebP automatically (480, 960 and 1600 px wide).</p>
+    </div>
+    <div class="fi">
+      <label for="alt">Alternative text</label>
+      <input id="alt" name="alt" aria-describedby="alt-hint">
+      <p class="hint" id="alt-hint">Describe what the image shows for people who cannot see it. Applied to all files in this upload — you can refine each one below.</p>
+    </div>
+    <button class="btn btn-primary" type="submit">Upload</button>
+  </form>
+</section>
+
+<section class="panel" aria-labelledby="lib-title">
+  <div class="panel-head">
+    <h2 id="lib-title">Library <span class="muted">({{ items | length }})</span></h2>
+    <form method="get" role="search" class="inline-search">
+      <label for="q" class="visually-hidden">Search images</label>
+      <input id="q" name="q" type="search" value="{{ q }}" placeholder="Search images">
+      <button class="btn btn-sm" type="submit">Search</button>
+    </form>
+  </div>
+  <ul class="media-grid" role="list">
+    {%- for m in items %}
+    {%- set used = usage.get(m.id, []) %}
+    <li class="media-card" id="m-{{ m.id }}">
+      <img src="{{ m.thumb }}" alt="" loading="lazy" width="480" height="{{ (480 * m.height / m.width) | int }}">
+      <form method="post" action="{{ url_for('admin.media_update', mid=m.id, q=q) }}" class="media-form">
+        <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        <p class="media-id"><code>{{ m.id }}</code> <span class="muted small">{{ m.width }}×{{ m.height }}</span></p>
+        <div class="fi">
+          <label for="alt-{{ m.id }}">Alt text</label>
+          <textarea id="alt-{{ m.id }}" name="alt" rows="2"{% if not m.alt and not m.decorative %} aria-invalid="true"{% endif %}>{{ m.alt }}</textarea>
+        </div>
+        <div class="fi">
+          <label for="credit-{{ m.id }}">Credit / source</label>
+          <input id="credit-{{ m.id }}" name="credit" value="{{ m.credit }}">
+        </div>
+        <div class="fi fi-check">
+          <input type="checkbox" id="dec-{{ m.id }}" name="decorative" value="1"{% if m.decorative %} checked{% endif %}>
+          <label for="dec-{{ m.id }}">Decorative only (no alt text needed)</label>
+        </div>
+        <p class="small muted">{% if used %}Used in: {{ used | unique | join(', ') }}{% else %}Not used yet{% endif %}</p>
+        <div class="media-actions">
+          <button class="btn btn-sm" type="submit">Save<span class="visually-hidden"> {{ m.id }}</span></button>
+          <a class="btn btn-sm btn-ghost" href="{{ m.full }}" target="_blank" rel="noopener">Open<span class="visually-hidden"> {{ m.id }} (opens in a new tab)</span></a>
+        </div>
+      </form>
+      {%- if not used %}
+      <form method="post" action="{{ url_for('admin.media_delete', mid=m.id) }}" data-confirm="Delete this image permanently?">
+        <input type="hidden" name="_csrf" value="{{ csrf_token() }}">
+        <button class="btn btn-sm btn-danger-ghost" type="submit">Delete<span class="visually-hidden"> {{ m.id }}</span></button>
+      </form>
+      {%- endif %}
+    </li>
+    {%- endfor %}
+  </ul>
+</section>
+{% endblock %}

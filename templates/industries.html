@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% import "_macros.html" as m with context %}
+{% block og_image %}{{ page.hero.image }}{% endblock %}
+{% block content %}
+{{ m.page_hero(page.hero, [('Home', '/'), ('Industries', '/industries/')], page.hero.image) }}
+
+<section class="section" aria-labelledby="list-title">
+  <div class="wrap">
+    <h2 class="visually-hidden" id="list-title">Industries we serve</h2>
+    <ul class="tile-grid tile-grid-all" role="list">
+      {%- for it in items %}{{ m.tile(it, '/industries/') }}{% endfor %}
+    </ul>
+  </div>
+</section>
+
+{%- if page.principle.title %}
+<section class="section section-alt" aria-labelledby="principle-title">
+  <div class="grid-lines" aria-hidden="true"></div>
+  <div class="wrap mission">
+    <h2 class="motto" id="principle-title">{{ page.principle.title }}</h2>
+    <p class="section-lede center">{{ page.principle.text }}</p>
+  </div>
+</section>
+{%- endif %}
+
+{{ m.cta_band(page.cta) }}
+{% endblock %}

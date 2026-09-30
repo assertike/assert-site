@@ -1,0 +1,28 @@
+{
+  "seo": {
+    "title": "Products | CoffeeAnalytics & LawFlow by ASSERT",
+    "description": "Discover ASSERT software products: CoffeeAnalytics, AI-driven intelligence for beverage suppliers, and LawFlow, AI-assisted legal practice management.",
+    "og_image": "",
+    "noindex": false
+  },
+  "hero": {
+    "eyebrow": "Products",
+    "title": "Domain knowledge turned into software products.",
+    "text": "Specialised platforms that combine software engineering, connected data and artificial intelligence to solve focused operational problems.",
+    "image": "analytics-dashboard"
+  },
+  "custom": {
+    "eyebrow": "Need a product built?",
+    "title": "We also build custom digital products for clients.",
+    "text": "From MVP to enterprise deployment, ASSERT turns a specialised business requirement into maintainable, scalable software.",
+    "button_label": "Talk to product engineering",
+    "button_url": "/contact/?topic=Custom+Software+%26+Product+Development"
+  },
+  "cta": {
+    "eyebrow": "",
+    "title": "",
+    "text": "",
+    "button_label": "",
+    "button_url": ""
+  }
+}
